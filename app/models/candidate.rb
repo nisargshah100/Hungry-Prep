@@ -1,7 +1,16 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :user
+  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status
   has_many :reviewers, through: :reviews
   belongs_to :user
+
+  def name
+    user.name
+  end
+
+  def email
+    user.email
+  end
+
 end
 # == Schema Information
 #
