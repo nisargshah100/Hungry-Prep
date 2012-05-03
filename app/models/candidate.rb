@@ -14,7 +14,7 @@ class Candidate < ActiveRecord::Base
     user.email
   end
 
-private
+  private
 
   def initialize_milestone
     self.milestone = Milestone.first
