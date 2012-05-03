@@ -4,7 +4,7 @@ class Candidate < ActiveRecord::Base
   belongs_to :user
   belongs_to :milestone
 
-  on_create :initialize_milestone
+  after_create :initialize_milestone
 
   def name
     user.name
