@@ -1,0 +1,20 @@
+<%= form_for @candidate do |f| %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>
+  <%= f.select STATES %>
+
+  <%= f.label :youtube_url %>
+  <%= f.text_box :youtube_url %>
+
+
+  <%= f.label :gist_url %>
+  <%= f.text_box :gist_url %>
+
+
+  <%= f.label :phone_number %>
+  <%= f.number_box :phone_number %>
+
+  <%= f.label :gender %>
+  <%= f.select :gender, options_for_select([["Male","Male"], ["Female", "Female"], ["Other", "Other  "]]) %>

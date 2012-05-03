@@ -1,7 +1,12 @@
 class Review < ActiveRecord::Base
-  attr_accessible :body, :candidate_id, :reviewer_id
+  attr_accessible :body, :candidate_id, :reviewer_id, :status
   belongs_to :candidate
   belongs_to :reviewer
+  belongs_to :milestone
+
+  def completed?
+    not self.body.blank?
+  end
 end
 # == Schema Information
 #
