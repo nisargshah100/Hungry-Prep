@@ -4,4 +4,6 @@
   <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
 <% else %>
   <%= link_to 'Sign In With GitHub', user_omniauth_authorize_path(:github) %>
+
+  <%= link_to 'Sign In With Google', user_omniauth_authorize_path(:google) %>
 <% end %>
