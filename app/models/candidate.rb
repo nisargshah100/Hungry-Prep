@@ -1,5 +1,5 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :status
+  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status
   has_many :reviewers, through: :reviews
   belongs_to :user
   belongs_to :milestone

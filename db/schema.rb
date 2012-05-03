@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120503222609) do
     t.string   "race"
     t.string   "youtube_link"
     t.string   "gist_link"
+    t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "status"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120503222609) do
   end
 
   create_table "reviewers", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

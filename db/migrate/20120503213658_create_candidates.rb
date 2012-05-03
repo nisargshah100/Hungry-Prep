@@ -12,6 +12,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :race
       t.string :youtube_link
       t.string :gist_link
+      t.integer :user_id
 
       t.timestamps
     end
