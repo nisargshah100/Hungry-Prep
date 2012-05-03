@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+gem 'omniauth-openid'
 gem 'simple_form'
 
 # Gems used only for assets and not required

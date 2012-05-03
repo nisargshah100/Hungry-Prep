@@ -1,6 +1,6 @@
 class Reviewer < ActiveRecord::Base
   # attr_accessible :title, :body
-  has_many :candidates, through: :reviews, :user
+  has_many :candidates, through: [ :reviews, :user ]
   belongs_to :user
 end
 # == Schema Information

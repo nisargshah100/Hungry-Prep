@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_one :candidate
   has_one :reviewer
 
+  REVIEWER_DOMAINS = [ 'hungrymachine.com', 'livingsocial.com' ]
+
   def self.new_with_session(email, data)
     user = self.create!(
       :email => email, 
@@ -20,15 +22,32 @@ class User < ActiveRecord::Base
   end
 
   def self.generate_candidate(user)
-    Candidate.create(:user => user)
+    user.create_candidate
   end
 
-  def self.find_for_github_oauth(email, data)
-    if not user = self.find_by_email(email)
+  def self.generate_reviewer(user)
+    user.create_reviewer
+  end
+
+  def self.find_for_github_oauth(email, data, signed_in_resource=nil)
+    if not user = self.where(email: email).first
       user = self.new_with_session(email, data)
     end
 
     generate_candidate(user) if not user.candidate
+    user
+  end
+
+  def self.find_for_open_id(data, signed_in_resource=nil)
+    email = data['info']['email']
+    domain = email.split('@').last
+    return nil if not REVIEWER_DOMAINS.include? domain
+
+    if not user = User.where(email: email).first
+      user = self.new_with_session(email, data)
+    end
+
+    generate_reviewer(user) if not user.reviewer
     user
   end
 end
