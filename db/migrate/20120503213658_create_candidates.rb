@@ -6,12 +6,13 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :state
       t.boolean :work_auth
       t.boolean :sponsorship
-      t.binal :criminal
+      t.boolean :criminal
       t.string :gender
       t.string :ethnicity
       t.string :race
       t.string :youtube_link
       t.string :gist_link
+      t.integer :user_id
 
       t.timestamps
     end

@@ -9,19 +9,27 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
 
+  has_one :candidate
+  has_one :reviewer
+
   def self.new_with_session(email, data)
-    self.create!(
+    user = self.create!(
       :email => email, 
       :password => Devise.friendly_token[0,20], 
-      :name => data['info']['name']) 
+      :name => data['info']['name'])
+  end
+
+  def self.generate_candidate(user)
+    Candidate.create(:user => user)
   end
 
   def self.find_for_github_oauth(email, data)
-    if user = self.find_by_email(email)
-      user
-    else
-      self.new_with_session(email, data)
+    if not user = self.find_by_email(email)
+      user = self.new_with_session(email, data)
     end
+
+    generate_candidate(user) if not user.candidate
+    user
   end
 end
 # == Schema Information

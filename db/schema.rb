@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503201442) do
+ActiveRecord::Schema.define(:version => 20120503213658) do
+
+  create_table "candidates", :force => true do |t|
+    t.string   "phone"
+    t.string   "city"
+    t.string   "state"
+    t.boolean  "work_auth"
+    t.boolean  "sponsorship"
+    t.boolean  "criminal"
+    t.string   "gender"
+    t.string   "ethnicity"
+    t.string   "race"
+    t.string   "youtube_link"
+    t.string   "gist_link"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "reviewers", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "reviewer_id"
+    t.integer  "candidate_id"
+    t.text     "body"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
