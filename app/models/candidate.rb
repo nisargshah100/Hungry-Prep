@@ -2,6 +2,9 @@ class Candidate < ActiveRecord::Base
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :status
   has_many :reviewers, through: :reviews
   belongs_to :user
+  belongs_to :milestone
+
+  on_create :initialize_milestone
 
   def name
     user.name
@@ -9,6 +12,12 @@ class Candidate < ActiveRecord::Base
 
   def email
     user.email
+  end
+
+private
+
+  def initialize_milestone
+    self.milestone = Milestone.first
   end
 
 end
