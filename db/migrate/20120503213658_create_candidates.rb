@@ -6,7 +6,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :state
       t.boolean :work_auth
       t.boolean :sponsorship
-      t.binal :criminal
+      t.boolean :criminal
       t.string :gender
       t.string :ethnicity
       t.string :race
