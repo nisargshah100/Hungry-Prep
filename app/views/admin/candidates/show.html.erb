@@ -60,6 +60,7 @@
   <section class="reviewer">
 
     <h2>Reviewers</h2>
+    <%= link_to "Add a New Review", new_admin_candidate_review_path(@candidate.id) %>
 
   <table>
     <% if @candidate.reviewers.empty? %>
