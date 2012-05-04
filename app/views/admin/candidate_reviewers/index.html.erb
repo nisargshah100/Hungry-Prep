@@ -2,12 +2,14 @@
   <thead>
     <th>Name</th>
     <th>E-mail</th>
+    <th>Status</th>
     <th>Reviewer</th>
   </thead>
   <% @candidates.each do |candidate| %>
     <tr>
       <td><%= link_to candidate.name, admin_candidate_path(candidate.id) %></td>
       <td><%= candidate.email %></td>
+      <td><%= candidate.status %></td>
       <td>
         <%= simple_form_for candidate, :url => admin_candidate_reviewer_path(candidate.id), :method => :put do |f| %>
           <%= f.association :reviewers %>

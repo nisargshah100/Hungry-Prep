@@ -1,6 +1,6 @@
 class Candidate < ActiveRecord::Base
   extend Forwardable
-  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number, :reviewer_ids
+  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number, :reviewer_ids, :profile_img
  
   has_many :reviews
   has_many :candidate_reviewers
@@ -10,7 +10,7 @@ class Candidate < ActiveRecord::Base
   belongs_to :user
   belongs_to :milestone
 
-  after_create :initialize_milestone
+  after_create :initialize_milestone, :add_status
   def_delegators :user, :name, :email
 
   def phone_number
@@ -25,14 +25,33 @@ class Candidate < ActiveRecord::Base
     user.name = new_name
   end
 
+  def status
+    statuses.last
+  end
+
+  def fetch_youtube_thumbnail
+    begin
+      t = youtube_client.video_by().thumbnails.first.url
+    rescue OpenURI::HTTPError
+      t = ""
+    end
+
+    self.profile_img = t
+    t
+  end
+
   private
+
+  def youtube_client
+    YouTubeIt::Client.new
+  end
 
   def initialize_milestone
     self.milestone = Milestone.first
   end
 
-  def status
-    statuses.last
+  def add_status
+    statuses.create
   end
 
 end

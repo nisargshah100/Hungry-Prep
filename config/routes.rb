@@ -13,4 +13,6 @@ HungryPrep::Application.routes.draw do
     resources :questions
   end
 
+  match '/admin', :to => 'admin/dashboard#show'
+
 end
