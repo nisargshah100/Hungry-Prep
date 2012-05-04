@@ -30,9 +30,11 @@
     <br />
     <ul>
       <% @questions.each do |question| %>
-        <li><%= question.text %>
-        <%= text_field_tag "questions[#{question.id}]", question.response_for_candidate_id(@candidate.id) %></li>
-        <% end %>
+        <li>
+          <h3><%= question.text %></h3>
+          <%= text_area_tag "questions[#{question.id}]", question.response_for_candidate_id(@candidate.id) %>
+        </li>
+      <% end %>
     </ul>
   </fieldset>
 
