@@ -10,7 +10,7 @@ class Candidate < ActiveRecord::Base
   belongs_to :user
   belongs_to :milestone
 
-  after_create :initialize_milestone
+  after_create :initialize_milestone, :add_status
   def_delegators :user, :name, :email
 
   def phone_number
@@ -25,16 +25,15 @@ class Candidate < ActiveRecord::Base
     user.name = new_name
   end
 
+  def status
+    statuses.last.get_status
+  end
+
   private
 
   def initialize_milestone
     self.milestone = Milestone.first
   end
-
-  def status
-    statuses.last
-  end
-
 end
 # == Schema Information
 #
