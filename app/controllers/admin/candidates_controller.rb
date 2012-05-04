@@ -1,4 +1,4 @@
-class Admin::CandidatesController < ApplicationController
+class Admin::CandidatesController < Admin::AdminController
   # before_filter :validate_admin
   before_filter :lookup_candidate, only: [:show, :update, :edit]
 
