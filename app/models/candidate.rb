@@ -1,5 +1,3 @@
-require 'forwardable'
-
 class Candidate < ActiveRecord::Base
   extend Forwardable
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number, :reviewer_ids
@@ -7,6 +5,8 @@ class Candidate < ActiveRecord::Base
   has_many :reviews
   has_many :candidate_reviewers
   has_many :reviewers, through: :candidate_reviewers
+  has_many :statuses
+
   belongs_to :user
   belongs_to :milestone
 
@@ -29,6 +29,10 @@ class Candidate < ActiveRecord::Base
 
   def initialize_milestone
     self.milestone = Milestone.first
+  end
+
+  def status
+    statuses.last
   end
 
 end

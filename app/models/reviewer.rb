@@ -1,5 +1,3 @@
-require 'forwardable'
-
 class Reviewer < ActiveRecord::Base
   extend Forwardable
 
