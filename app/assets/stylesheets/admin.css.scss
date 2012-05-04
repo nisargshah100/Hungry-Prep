@@ -1,3 +1,18 @@
 .page-wrap {
   padding-top: 50px;
 }
+
+.admin-nav {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.admin-nav li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.admin-nav li:first-child {
+  margin-left: 0;
+}

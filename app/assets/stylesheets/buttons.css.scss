@@ -10,3 +10,14 @@
   color: #fff;
   font-weight: bold;
 }
+
+.button.secondary {
+  @include gradient(#fff, #e6e7e8);
+  border: 1px solid $gray_2;
+  color: $gray_3;
+  font-weight: bold;
+}
+
+.button.small {
+  font-size: 1.2rem;
+}
