@@ -20,11 +20,13 @@ $ ->
     $.post form.attr("action"), $(form).serialize()+"&ajax=1", (res) ->
       console.log(res)
       setTime()
-      setTimeout("document.getElementById('flash-save').innerHTML = ''", 1000)
       false
 setTime = ()->
   date = new Date()
+  document.getElementById('last-saved').className = 'flash'
+  setTimeout("document.getElementById('last-saved').className = ''", 4000)
   document.getElementById('time').innerHTML = dayToString(date.getDay()) + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + AMorPM(date)
+  $()
 
 
 dayToString = (day) ->

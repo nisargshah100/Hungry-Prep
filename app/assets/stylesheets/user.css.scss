@@ -39,8 +39,10 @@ body {
   font-size: 3.0rem;
   font-family: $rounded_font;
   margin-bottom: 10px;
-
+  font-weight: normal;
 }
+
+
 
 .edit_candidate li {
   margin-bottom: 20px;
@@ -56,7 +58,7 @@ body {
 .edit_candidate h3 {
   color: $gray_3;
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 5px;
 }
 

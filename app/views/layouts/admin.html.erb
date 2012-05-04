@@ -15,7 +15,7 @@
     <div class="account columns six">
       <% if current_user %>
         <span class="user"><%= current_user.name %></span>
-        <span class="last-saved">Application saved <span id="time"></span></span>
+        <span class="last-saved" id="last-saved">Application saved <span id="time"></span></span>
         <span class="user-actions"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>
       <% end %>
     </div>
