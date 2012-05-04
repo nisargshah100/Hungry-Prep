@@ -1,18 +1,25 @@
-<h3>Candidate Dashboard</h3>
-<br />
-<img src="<%= @candidate.profile_img %>"></img>
-<br />
-<table>
-  <tr>
-    <td>Name</td>
-    <td><%= @candidate.name %></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><%= @candidate.email %></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td><%= @candidate.status %></td>
-  </tr>
-</table>
+<div class="container">
+  <div class="rounded-box user-profile">
+    <header>
+      <h2><%= @candidate.name %></h2>
+      <span class="flag status notice"><%= @candidate.status %></span>
+    </header>
+    <div class="profile">
+      <% if @candidate.profile_img? %>
+        <img src="<%= @candidate.profile_img %>"></img>
+      <% else %>
+        <%= image_tag "/assets/blank_user.gif" %>
+      <% end %>
+      <div class="user-details">
+        <span class="email"><%= @candidate.email %></span>
+        <span class="email"><%= @candidate.phone_number %></span>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <%= link_to "Edit Profile", "#", :class => "button primary" %>
+    </div>
+  </div>
+</div>

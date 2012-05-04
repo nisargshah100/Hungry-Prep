@@ -20,11 +20,35 @@ aside {
   display: block;
 }
 
+h1, h2, h3, h4 {
+  font-family: $rounded_font;
+}
+
+h1 {
+  color: $gray_3;
+  font-size: 2.8rem;
+}
+
+h2 {
+  color: $gray_3;
+  font-size: 2.0rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
 a {
   color: $slushie;
   text-decoration: none;
 }
 
+.page-content {
+  padding-bottom: 40px;
+}
+
+// Header
+// ==========================
 .logo {
   display: inline-block;
   text-indent: -9999px;
@@ -34,8 +58,6 @@ a {
   position: relative;
 }
 
-
-
 .global-header {
   background: $black url("/assets/header.png") left bottom repeat-x;
   min-height: 75px;
@@ -43,7 +65,7 @@ a {
 
   .logo         {background: url("/assets/logo.png") 0 0 no-repeat; display: block; position: absolute; left: 0; text-indent: -999px; width: 380px; height: 131px;}
 
-  .account      { color: $gray_3; font-family: $rounded_font; float: right; padding-bottom: 10px;}
+  .account      { color: $gray_3; font-family: $rounded_font; float: right; padding-bottom: 10px; text-align: right;}
   .user,
   .user-actions,
   .last-saved   { display: block; }
@@ -89,6 +111,9 @@ a {
   padding: 20px;
 }
 
+// Login
+// ==========================
+
 .login .welcome {
   font-size: 2.0rem;
   margin-bottom: 20px;
@@ -104,3 +129,10 @@ a {
   display: inline-block;
   margin-left: 20px;
 }
+
+
+// Badges and Status
+// ==========================
+
+.flag {@include border-radius(4px); font-size: 1.1rem; font-weight: bold; padding: 6px; text-transform: uppercase; }
+.flag.notice {background: $notice-background; border: 1px solid $notice-border; color: $gray_3; }
