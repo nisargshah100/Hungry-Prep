@@ -1,5 +1,20 @@
+* {
+  @include box-sizing(border-box);
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background: $gray_3;
+  background: $gray_4;
+  font-family: $base_font;
+  font-size: 1.4rem;
+}
+
+a {
+  color: $slushie;
+  text-decoration: none;
 }
 
 .logo {
@@ -7,8 +22,35 @@ body {
   text-indent: -9999px;
 }
 
+.header-inner {
+  position: relative;
+}
+
+
+
+.global-header {
+  background: $black url("/assets/header.png") left bottom repeat-x;
+  min-height: 75px;
+  padding-top: 10px;
+
+  .logo         {background: url("/assets/logo.png") 0 0 no-repeat; display: block; position: absolute; left: 0; text-indent: -999px; width: 380px; height: 131px;}
+
+  .account      { color: $gray_3; font-family: $rounded_font; float: right; padding-bottom: 10px;}
+  .user,
+  .user-actions,
+  .last-saved   { display: block; }
+
+  .user         { color: $clementine; margin-bottom: 5px;}
+
+  .user-actions,
+  .last-saved   { font-size: 1.2rem; }
+
+  .last-saved   { margin-bottom: 5px; }
+}
+
+
 .cobrand {
-  color: $gray_2;
+  color: $gray_3;
   margin-bottom: 20px;
   padding-top: 50px;
 }
@@ -30,4 +72,27 @@ body {
   padding-top: 10px;
   width: 119px;
   height: 25px;
+}
+
+.rounded-box {
+  @include border-radius(4px);
+  background: $gray_1;
+  min-height: 200px;
+  padding: 20px;
+}
+
+.login .welcome {
+  font-size: 2.0rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-actions {
+  text-align: center;
+}
+
+.login-actions a {
+  color: $rust;
+  display: inline-block;
+  margin-left: 20px;
 }
