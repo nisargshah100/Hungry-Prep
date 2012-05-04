@@ -3,9 +3,8 @@ HungryPrep::Application.routes.draw do
 
   root :to => "home#index"
   match '/admin', :to => 'admin/dashboard#show'
-
   resources :candidates
-
+  resources :applications
   namespace :admin do
     resources :candidates do 
       resources :reviews
