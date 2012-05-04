@@ -9,10 +9,13 @@
     <li>Rating: <%= @candidate.total_score %></li>
   </ul>
   <br />
+  <%= link_to "Resume", @candidate.resume.url %>
+  <br />
+  <br />
   Responses
   <br />
   <br />
-  
+
   <% @candidate.responses.each do |response| %>
     <b><%= response.question.text %></b>
     <br /><br />
