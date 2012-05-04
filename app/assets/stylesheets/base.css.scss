@@ -63,6 +63,7 @@ a {
   padding-top: 10px;
 
   .logo         {background: url("/assets/logo.png") 0 0 no-repeat; display: block; position: absolute; left: 0; text-indent: -999px; width: 380px; height: 131px;}
+  .logo a       { display: block; height: 131px; }
 
   .account      { color: $gray_3; font-family: $rounded_font; float: right; padding-bottom: 10px; text-align: right;}
   .user,
@@ -102,6 +103,10 @@ a {
   display: inline-block;
   margin-left: 20px;
 }
+
+// Forms
+// ==========================
+
 
 
 // Badges and Status
