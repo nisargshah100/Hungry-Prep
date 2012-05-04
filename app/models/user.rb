@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   def self.find_for_open_id(data, signed_in_resource=nil)
     email = data['info']['email']
     domain = email.split('@').last
-    return nil if not REVIEWER_DOMAINS.include? domain
+    return User.new if not REVIEWER_DOMAINS.include? domain
 
     if not user = User.where(email: email).first
       user = self.new_with_session(email, data)
