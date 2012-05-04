@@ -2,8 +2,8 @@ require 'forwardable'
 
 class Candidate < ActiveRecord::Base
   extend Forwardable
-
-  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status
+  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number
+ 
   has_many :reviews
   has_many :candidate_reviewers
   has_many :reviewers, through: :candidate_reviewers
