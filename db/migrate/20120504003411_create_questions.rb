@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :title
       t.text :text
-      t.string :last_editor, default: "Admin"
+      t.integer :last_editor_id, default: 0
       t.timestamps
     end
   end
