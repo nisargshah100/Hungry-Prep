@@ -1,5 +1,5 @@
 class Admin::QuestionsController < Admin::AdminController
-  before_filter :require_admin
+  authorize_resource
 
   def index
     @questions = Question.all
@@ -17,19 +17,13 @@ class Admin::QuestionsController < Admin::AdminController
     @question = Question.new(params[:question])
     @question.last_editor_id = current_user.id
     @question.save
-    redirect_to admin_question_path(@question)
+    redirect_to admin_questions_path
   end
 
   def update
     @question = Question.find(params[:id])
-    @question.last_editor_id = current_user.id
-    @question.save
-    @question.update_attributes(params[:question])
-    redirect_to admin_question_path(@question)
-  end
-
-  def show
-    @question = Question.find(params[:id])
+    @question.update_question(current_user, params[:question])
+    redirect_to admin_questions_path
   end
 
   def destroy
@@ -38,9 +32,4 @@ class Admin::QuestionsController < Admin::AdminController
     redirect_to admin_questions_path
   end
 
-  private
-
-  def require_admin
-    redirect_to root_url unless current_user and current_user.is_admin?
-  end
 end
