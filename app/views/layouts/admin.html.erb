@@ -10,7 +10,7 @@
 <body>
 <header class="global-header">
   <div class="header-inner container">
-    <h1 class="logo">Hungry Academy</h1>
+    <h1 class="logo"><%= link_to "Hungry Academy", admin_path %></h1>
 
     <div class="account columns six">
       <% if current_user %>
@@ -23,8 +23,15 @@
 </header>
 <div class="page-wrap">
 
-
-  <div class="page-content">
+  <nav class="admin-nav container">
+    <ul>
+      <li><%= link_to "Dashboard", admin_path %></li>
+      <li><%= link_to "Candidates", "#" %></li>
+      <li><%= link_to "Assign Reviewers", "#" %></li>
+      <li><%= link_to "Candidate Reviews", "#" %></li>
+    </ul>
+  </nav>
+  <div class="page-content container">
     <%= yield %>
   </div>
 </div>
