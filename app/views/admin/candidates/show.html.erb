@@ -31,8 +31,12 @@
     <div>
       <h2>Video &amp; Resume</h2>
       <div class="material">
-        <p><%= link_to "Resume", @candidate.resume.url %></p>
+        <br />
+        <% if @candidate.resume.url %>
+          <p><%= link_to "Resume", @candidate.resume.url %></p>
+        <% end %>
         <p><%= link_to "YouTube Video", @candidate.youtube_link %></p>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
