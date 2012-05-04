@@ -1,8 +1,17 @@
+require 'forwardable'
+
 class Reviewer < ActiveRecord::Base
+  extend Forwardable
+
   # attr_accessible :title, :body
+  attr_accessible :user
+
   has_many :reviews
-  has_many :candidates, through: [ :reviews, :user ]
+  has_many :candidate_reviewers
+  has_many :candidates, through: :candidate_reviewers
   belongs_to :user
+
+  def_delegators :user, :name, :email
 end
 # == Schema Information
 #

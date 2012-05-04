@@ -23,6 +23,15 @@
   powered by <span class="logo logo-ls">LivingSocial</span> &amp; <span class="logo logo-jumpstart">Jumpstart Labs</span>
 </div>
 <div class="page-wrap">
+  <% if current_user %>
+    <%= current_user.email %>
+    <% if current_user.reviewer %>
+      Reviewer #<%= current_user.reviewer.id %>
+    <% else %>
+      Candidate #<%= current_user.candidate.id %>
+    <% end %>
+  <% end %>
+
   <div class="container page-content">
     <%= yield %>
   </div>

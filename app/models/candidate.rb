@@ -1,17 +1,17 @@
+require 'forwardable'
+
 class Candidate < ActiveRecord::Base
-
+  extend Forwardable
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number
-
+ 
   has_many :reviews
-  has_many :reviewers, through: :reviews
+  has_many :candidate_reviewers
+  has_many :reviewers, through: :candidate_reviewers
   belongs_to :user
   belongs_to :milestone
 
   after_create :initialize_milestone
-
-  def name
-    user.name
-  end
+  def_delegators :user, :name, :email
 
   def phone_number
     phone
@@ -23,10 +23,6 @@ class Candidate < ActiveRecord::Base
 
   def name=(new_name)
     user.name = new_name
-  end
-
-  def email
-    user.email
   end
 
   private

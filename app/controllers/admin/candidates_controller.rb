@@ -5,7 +5,7 @@ class Admin::CandidatesController < Admin::AdminController
   before_filter :lookup_candidate, only: [:show, :update, :edit]
 
   def index
-    @candidates = Candidate.all
+    @candidates = current_user.reviewer.candidates
   end
 
   def edit
