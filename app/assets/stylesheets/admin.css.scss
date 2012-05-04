@@ -1,11 +1,19 @@
-.page-wrap {
-  padding-top: 50px;
+body {
+  background: $gray_1;
+}
+
+.page-wrap.page-admin {
+  padding-top: 30px;
+  position: relative;
+}
+
+.nav-wrap {
+  background: $gray_3;
+  padding: 10px 0;
 }
 
 .admin-nav {
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  text-align: right;
 }
 
 .admin-nav li {
@@ -15,4 +23,30 @@
 
 .admin-nav li:first-child {
   margin-left: 0;
+}
+
+.page-content {
+  margin-top: 30px;
+}
+
+// Candidates Index
+
+.user-snapshot {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.user-snapshot img {
+  border: 10px solid #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  display: block;
+  margin-bottom: 8px;
+  width: 200px;
+  height: 150px;
+}
+
+.user-snapshot .user-details {
+  font-weight: bold;
+  padding-left: 10px;
 }

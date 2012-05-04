@@ -13,13 +13,24 @@ jQuery.extend
     nvpair
 
 id = $.parseQuerystring()["id"]
-
 $ ->
   form = $('.edit_candidate')
 
   form.find(":input").blur ->
     $.post form.attr("action"), $(form).serialize()+"&ajax=1", (res) ->
       console.log(res)
-      document.getElementById("flash-save").innerHTML = "Saved"
+      setTime()
       setTimeout("document.getElementById('flash-save').innerHTML = ''", 1000)
       false
+setTime = ()->
+  date = new Date()
+  document.getElementById('time').innerHTML = dayToString(date.getDay()) + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + AMorPM(date)
+
+
+dayToString = (day) ->
+  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  return days[day]
+
+AMorPM = () ->
+  date = new Date()
+  if date.getHours() < 12 then " AM" else " PM"

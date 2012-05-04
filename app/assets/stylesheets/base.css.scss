@@ -104,10 +104,23 @@ a {
   margin-left: 20px;
 }
 
-// Forms
+// Nav bits
 // ==========================
 
+.filter-nav {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
 
+.filter-nav li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.filter-nav li:first-child {
+  margin-left: 0;
+}
 
 // Badges and Status
 // ==========================

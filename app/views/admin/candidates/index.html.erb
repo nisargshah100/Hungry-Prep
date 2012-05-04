@@ -1,9 +1,22 @@
-<% Status::STATUSES.each_with_index do |status, idx| %>
-  <%= link_to status, admin_candidates_path(status: idx) %> | 
-<% end %>
-<br />
-<br />
+  <ul class="filter-nav">
+  <% Status::STATUSES.each_with_index do |status, idx| %>
+    <li><%= link_to status, admin_candidates_path(status: idx), :class => "btn" %></li>
+  <% end %>
+  </ul>
+
+<ul>
 <% @candidates.each do |candidate| %>
-  <%= image_tag candidate.profile_img %>
-  <%= link_to candidate.name, admin_candidate_path(candidate)%>
+  <li class="user-snapshot">
+    <div class="profile">
+      <% if candidate.profile_img? %>
+        <%= image_tag candidate.profile_img %>
+      <% else %>
+        <%= image_tag "/assets/blank_user.gif" %>
+      <% end %>
+    </div>
+    <div class="user-details">
+      <%= link_to candidate.name, admin_candidate_path(candidate)%>
+    </div>
+  </li>
 <% end %>
+</ul>
