@@ -16,10 +16,4 @@ class CandidatesController < ApplicationController
     end
   end
 
-  private
-
-  def lookup_candidate
-    @candidate = current_user.candidate
-  end
-
 end
