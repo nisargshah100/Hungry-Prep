@@ -1,0 +1,75 @@
+<h3> Welcome to the first step in your application process</h3>
+
+<p> The below video will start the interview process. When you click play, Jeff will ask a question. Upon completion, you will have one minute to complete think about your response.</p>
+
+<p> After that, you will be recorded for three minutes or until you hit stop.</p>
+
+<p> You may take as long as you like to begin, and the questions do not have to be done one at a time.</p>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/2rGauEJAzJ4" frameborder="0" allowfullscreen></iframe>
+<br>
+DERP<br>
+DERP<br>
+<video autoplay></video>
+
+<script>
+  var onFailSoHard = function(e) {
+    console.log('Reeeejected!', e);
+  };
+
+  // Not showing vendor prefixes.
+  navigator.getUserMedia({video: true, audio: true}, function(localMediaStream) {
+    var video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(localMediaStream);
+
+    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+    // See crbug.com/110938.
+    video.onloadedmetadata = function(e) {
+      // Ready to go. Do some stuff.
+    };
+  }, onFailSoHard);
+
+
+// cross-browser (opera/chrome) support 
+// navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+// var video = document.querySelector('video');
+
+// if (navigator.getUserMedia) {
+//   navigator.getUserMedia({audio: true, video: true}, function(stream) {
+//     if (navigator.webkitGetUserMedia) {
+//       video.src = window.webkitURL.createObjectURL(stream);
+//     } else {
+//       video.src = stream; // Opera
+//     }
+//   }, onFailSoHard);
+// } else {
+//   video.src = 'somevideo.webm'; // fallback.
+// }
+
+
+navigator.webkitGetUserMedia('audio, video', function(localMediaStream) {
+  var video = document.querySelector('video');
+  video.src = window.webkitURL.createObjectURL(localMediaStream);
+}, onFailSoHard);
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+function hasGetUserMedia() {
+  // Note: Opera builds are unprefixed.
+  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+if (hasGetUserMedia()) {
+  // Good to go!
+} else {
+  alert('getUserMedia() is not supported in your browser');
+}
+
+</script>
