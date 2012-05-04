@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     user.create_reviewer
   end
 
-  def self.find_for_github_oauth(email, data, signed_in_resource=nil)
+  def self.find_for_github_oauth(email, data)
     if not user = self.where(email: email).first
       user = self.new_with_session(email, data)
     end

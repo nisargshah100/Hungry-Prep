@@ -1,4 +1,4 @@
-class Admin::ReviewsController < ApplicationController
+class Admin::ReviewsController < Admin::AdminController
   before_filter :lookup_review, only: [:edit, :show, :update, :destroy]
 
   def new

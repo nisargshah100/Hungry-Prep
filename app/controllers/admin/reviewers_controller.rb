@@ -1,4 +1,4 @@
-class Admin::ReviewersController < ApplicationController
+class Admin::ReviewersController < Admin::AdminController
   before_filter :lookup_reviewer, only: [:show]
   # before_filter :require_super_reviewer, only: [:index]
 
