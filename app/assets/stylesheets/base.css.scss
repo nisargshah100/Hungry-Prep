@@ -7,7 +7,6 @@ html {
 }
 
 body {
-  background: $gray_4;
   font-family: $base_font;
   font-size: 1.4rem;
 }
@@ -76,32 +75,6 @@ a {
   .last-saved   { font-size: 1.2rem; }
 
   .last-saved   { margin-bottom: 5px; }
-}
-
-
-.cobrand {
-  color: $gray_3;
-  margin-bottom: 20px;
-  padding-top: 50px;
-}
-
-.cobrand .logo {
-  margin: 0 5px;
-}
-
-.logo-ls {
-  background: url("/assets/ls_logo.png") 0 0 no-repeat;
-  padding-top: 5px;
-  width: 110px;
-  height: 25px;
-
-}
-
-.logo-jumpstart {
-  background: url("/assets/jumpstart_logo.png") 0 0 no-repeat;
-  padding-top: 10px;
-  width: 119px;
-  height: 25px;
 }
 
 .rounded-box {

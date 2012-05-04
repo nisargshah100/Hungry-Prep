@@ -1,21 +1,23 @@
-Candidate Info
-<br />
-<ul>
-  <li><%= @candidate.name %></li>
-  <li><%= @candidate.email %></li>
-  <li></li>
-</ul>
+<div class="container">
+  Candidate Info
+  <br />
+  <ul>
+    <li><%= @candidate.name %></li>
+    <li><%= @candidate.email %></li>
+    <li></li>
+  </ul>
 
-Reviewers
-<br />
-<table>
-  <% if @candidate.reviewers.empty? %>
-    <tr>There are no reviewers</tr>
-  <% end %>
-  <% @candidate.reviewers.each do |reviewer| %>
-    <tr>
-      <td><%= reviewer.name %></td>
-      <td><%= reviewer.email %></td>
-    </tr>
-  <% end %>
-</table>
+  Reviewers
+  <br />
+  <table>
+    <% if @candidate.reviewers.empty? %>
+      <tr>There are no reviewers</tr>
+    <% end %>
+    <% @candidate.reviewers.each do |reviewer| %>
+      <tr>
+        <td><%= reviewer.name %></td>
+        <td><%= reviewer.email %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
