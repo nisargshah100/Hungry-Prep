@@ -11,6 +11,8 @@ Ratings
 General Comments
 <br />
 <%= simple_form_for @review, url: admin_reviews_path do |f| %>
+<%= f.input :communication, :collection => 1..10, :as => :select, :default => 1 %>
+<%= f.input :reasoning, :collection => 1..10, :as => :select, :default => 1 %>
 <%= f.input :body %>
 <%= f.submit %>
 <% end %>

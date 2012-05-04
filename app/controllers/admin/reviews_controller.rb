@@ -5,20 +5,22 @@ class Admin::ReviewsController < Admin::AdminController
   end
 
   def new
-    @candidate = Candidate.find(params[:id])
+    @candidate = Candidate.find(params[:candidate_id])
     @review = Review.new
   end
 
   def create
-    if review = Review.create(params[:review])
-      redirect_to admin_review_path(review), notice: "Successfully Submitted"
+    @candidate = Candidate.find(params[:candidate_id])
+    if review = @candidate.reviews.create(params[:review])
+      redirect_to admin_review_path(@candidate.id, review), notice: "Successfully Submitted"
     else
-      redirect_to admin_edit_review_path(review), notice: "Please try again"
+      render 'new', notice: "Please try again"
     end
   end
 
   def show
-
+    @candidate = Candidate.find(params[:candidate_id])
+    @review = @candidate.reviews.find(params[:id])
   end
 
   def edit
@@ -40,11 +42,7 @@ class Admin::ReviewsController < Admin::AdminController
 
   def lookup_reviews
     lookup_candidate
-    instance_variable_set(
-      "#{pluralize(review.count, '@review')}".match(/w+/),
-      params[:id] ?
-      @candidate.reviews :
-      @candidate.reviews.where(id: params[:id]))
+    @candidate.reviews
   end
 
 end
