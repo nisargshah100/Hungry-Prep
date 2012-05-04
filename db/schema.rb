@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504072645) do
+ActiveRecord::Schema.define(:version => 20120504095547) do
 
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120504072645) do
     t.text     "long_answer_1"
     t.text     "long_answer_2"
     t.text     "long_answer_3"
+    t.string   "resume"
   end
 
   create_table "milestones", :force => true do |t|
@@ -50,9 +51,9 @@ ActiveRecord::Schema.define(:version => 20120504072645) do
 
   create_table "questions", :force => true do |t|
     t.text     "text"
-    t.string   "last_editor", :default => "Admin"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "last_editor_id", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "responses", :force => true do |t|

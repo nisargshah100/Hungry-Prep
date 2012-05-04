@@ -16,6 +16,7 @@ gem 'client_side_validations'
 gem 'bourbon'
 gem 'cancan'
 gem 'youtube_it'
+gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
