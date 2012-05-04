@@ -10,7 +10,7 @@ Ratings
 
 General Comments
 <br />
-<%= simple_form_for @review, url: admin_reviews_path do |f| %>
+<%= simple_form_for @review, url: admin_candidate_reviews_path(@candidate) do |f| %>
 <%= f.input :communication, :collection => 1..10, :as => :select, :default => 1 %>
 <%= f.input :reasoning, :collection => 1..10, :as => :select, :default => 1 %>
 <%= f.input :body %>
