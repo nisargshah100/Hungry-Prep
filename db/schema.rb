@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504044059) do
+ActiveRecord::Schema.define(:version => 20120504052941) do
+
+  create_table "candidate_questions", :force => true do |t|
+    t.integer  "candidate_id"
+    t.integer  "question_id"
+    t.text     "question_text"
+    t.text     "answer"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
@@ -31,11 +40,14 @@ ActiveRecord::Schema.define(:version => 20120504044059) do
     t.string   "youtube_link"
     t.string   "gist_link"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "status"
     t.integer  "milestone_id"
     t.string   "profile_img"
+    t.text     "long_answer_1"
+    t.text     "long_answer_2"
+    t.text     "long_answer_3"
   end
 
   create_table "milestones", :force => true do |t|
@@ -49,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20120504044059) do
     t.string   "title"
     t.text     "text"
     t.integer  "last_editor_id", :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "answer_type",    :default => "text_field"
   end
 
   create_table "reviewers", :force => true do |t|
