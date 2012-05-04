@@ -81,6 +81,7 @@
       <p>There are no reviews</p>
     <% end %>
     <% @candidate.reviews.each do |review| %>
+    <p class="reviewer"><strong>Reviewer:</strong> <%= review.reviewer.name %> | <%= review.reviewer.email %></p>
 
     <ul class="review-summary">
       <li>
@@ -97,7 +98,6 @@
       </li>
     </ul>
 
-    <!-- <p><%#= review.reviewer.name %> | <%#= review.reviewer.email %></p> -->
     <% end %>
   </div>
   </section>
