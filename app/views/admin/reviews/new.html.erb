@@ -1,0 +1,5 @@
+<%= form_for@review, url: admin_candidate_reviews_path(1) do |f| %>
+  <%= Question.all do |q| %> 
+    <%= q.inspect %>
+  <% end %>
+<% end %>

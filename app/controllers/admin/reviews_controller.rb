@@ -1,5 +1,5 @@
 class Admin::ReviewsController < Admin::AdminController
-  before_filter :lookup_reviews, only: [:edit, :show, :update, :destroy]
+  before_filter :lookup_review, only: [:edit, :show, :update, :destroy]
 
   def index
   end
@@ -17,7 +17,6 @@ class Admin::ReviewsController < Admin::AdminController
   end
 
   def show
-
   end
 
   def edit
@@ -34,16 +33,12 @@ class Admin::ReviewsController < Admin::AdminController
 
   private
   def lookup_candidate
-    @candidate = Candidate.find(params[:candidate_id])
+    @candidate = Candidate.includes(:reviews).where(id: params[:candidate_id])
   end
 
-  def lookup_reviews
+  def lookup_review
     lookup_candidate
-    instance_variable_set(
-      "#{pluralize(review.count, '@review')}".match(/w+/),
-      params[:id] ?
-      @candidate.reviews :
-      @candidate.reviews.where(id: params[:id]))
+    @candidate.first.reviews.find(params[:id])
   end
 
 end
