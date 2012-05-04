@@ -1,16 +1,51 @@
-<div class="container">
-  Candidate Info
-  <br />
-  <ul>
-    <li>Name: <%= @candidate.name %></li>
-    <li>Email: <%= @candidate.email %></li>
-    <li>Phone: <%= @candidate.phone %></li>
-    <li>Status: <%= @candidate.status.status %></li>
-    <li>Rating: <%= @candidate.total_score %></li>
-  </ul>
+<div class="container <%= params[:controller].gsub(/\//, '-')  %>">
 
-  Reviewers
-  <br />
+  <header>
+
+    <h1><%= @candidate.name %></h1>
+
+    <section class="meta">
+      <ul class="info">
+        <li><%= @candidate.city %>, <%= @candidate.state %></li>
+        <li><b>Email:</b> <%= @candidate.email %></li>
+        <li><b>Phone:</b> <%= @candidate.phone %></li>
+      </ul>
+
+      <ul class="status">
+        <li><b>Status:</b> <%= @candidate.status.status %></li>
+        <li><b>Rating:</b> 30</li>
+      </ul>
+    </section>
+
+  </header>
+
+  <section class="materials">
+    <div>
+      <h2>Video &amp; Resume</h2>
+      <div class="material">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div>
+      <h2>Essay questions</h2>
+      <div class="material">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div>
+      <h2>Timeline</h2>
+      <div class="material">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="reviewer">
+
+    <h2>Reviewers</h2>
+
   <table>
     <% if @candidate.reviewers.empty? %>
       <tr>There are no reviewers</tr>
@@ -22,4 +57,7 @@
       </tr>
     <% end %>
   </table>
+
+  </section>
+
 </div>

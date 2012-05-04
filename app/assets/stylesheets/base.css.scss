@@ -46,6 +46,8 @@ a {
   padding-bottom: 40px;
 }
 
+b {font-weight: bold;}
+
 // Header
 // ==========================
 .logo {
@@ -127,3 +129,66 @@ a {
 
 .flag {@include border-radius(4px); font-size: 1.1rem; font-weight: bold; padding: 6px; text-transform: uppercase; }
 .flag.notice {background: $notice-background; border: 1px solid $notice-border; color: $gray_3; }
+
+
+
+
+
+
+// FUCK IT!!!!
+// ==========================
+
+.filter-nav {
+  font-family: $rounded_font; font-size: 1em;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: $standard_radius;
+  display: inline-block;
+  @include box-shadow(0 1px 0 #fff inset);
+  @include background-image(linear-gradient(white,#f0f0f0));
+  li {
+    margin: 0;
+    border-right: 1px solid #eaeaea;
+    &:last-child {border-right: none;}
+    &.current a {color: $gray_4;}
+  }
+  a {
+    padding: 15px;
+    display: block;
+    color: $gray_2; text-align: center;
+  }
+}
+
+
+.admin-candidates {
+  header {
+    margin-bottom: 1em;
+    @include clearfix;
+    h1, h2 {color: #333;}
+    ul {
+      width: 50%; float: left;
+      li {padding-right: 20px; margin-bottom: .5em;}
+    }
+  }
+  .material {
+    position: absolute; opacity: 0; padding: 15px;
+    -webkit-transform: rotateX(90deg); -webkit-transform-origin: top; -webkit-transition: .5s all ease-in-out; 
+    &.visible {-webkit-transform: rotateX(0deg); position: relative; opacity: 1; -webkit-transform-origin: bottom;}
+  }
+  .materials {
+    -webkit-perspective: 400px; margin-bottom: 2em;
+    h2 {
+      padding: 15px 15px 10px 15px;
+      background: url(/assets/disclosure.png) no-repeat 98% 10px;
+    }
+    > div {background: #dadada; border-top: 1px solid #ccc;}
+  }
+}
+
+.reviewer {
+  h2 {margin-bottom: 1em;}
+}
+
+
+
+
