@@ -15,8 +15,17 @@ class Admin::QuestionsController < Admin::AdminController
 
   def create
     @question = Question.new(params[:question])
+    @question.last_editor_id = current_user.id
     @question.save
-    redirect_to question_path(@question)
+    redirect_to admin_question_path(@question)
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.last_editor_id = current_user.id
+    @question.save
+    @question.update_attributes(params[:question])
+    redirect_to admin_question_path(@question)
   end
 
   def show
@@ -26,12 +35,12 @@ class Admin::QuestionsController < Admin::AdminController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_path
+    redirect_to admin_questions_path
   end
 
   private
 
   def require_admin
-    redirect_to root_url unless current_user and current_user.admin?
+    redirect_to root_url unless current_user and current_user.is_admin?
   end
 end
