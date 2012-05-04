@@ -1,10 +1,6 @@
 class Admin::CandidatesController < Admin::AdminController
   load_and_authorize_resource
 
-  def edit
-
-  end
-
   def show
 
   end
