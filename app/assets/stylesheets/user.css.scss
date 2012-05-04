@@ -53,3 +53,15 @@
 .edit_candidate input.radio {
   vertical-align: top;
 }
+
+.user-profile {
+  header { margin-bottom: 20px; position: relative; }
+  .flag { position: absolute; right: 0; top: 0;}
+  .actions { margin-top: 20px;}
+}
+
+.profile {
+  overflow: hidden;
+
+  img { border: 1px solid #ddd; float: left; margin-right: 20px; height: 90px; width: 120px; }
+}
