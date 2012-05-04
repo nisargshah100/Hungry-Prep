@@ -31,13 +31,15 @@ class Candidate < ActiveRecord::Base
   end
 
   def fetch_youtube_thumbnail
-    begin
-      t = youtube_client.video_by(self.youtube_link).thumbnails.first.url
-    rescue OpenURI::HTTPError
-      t = ""
-    end
+    t = ""
+    unless self.youtube_link.blank?
+      begin
+        t = youtube_client.video_by(self.youtube_link || "").thumbnails.first.url
+      rescue OpenURI::HTTPError
+      end
 
-    self.profile_img = t
+      self.profile_img = t
+    end
     t
   end
 
