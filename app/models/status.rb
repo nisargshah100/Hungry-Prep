@@ -24,10 +24,15 @@ class Status < ActiveRecord::Base
       define_method("is_#{status.to_method_name}?") do
         self.status == index
       end
-      define_method("all_candidates_by_#{status.to_method_name}") do
-        Candidate.scoped.where(status: status)
-      end
     end
+  end
+
+  def status_id=(val)
+    self.status=val
+  end
+
+  def status_id
+    self.status
   end
 
   def to_s

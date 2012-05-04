@@ -7,7 +7,7 @@ class Candidate < ActiveRecord::Base
   has_many :responses
   has_many :reviews
   has_many :reviewers, through: :candidate_reviewers
-  has_many :statuses
+  has_many :statuses, :autosave => true
 
   belongs_to :user
   belongs_to :milestone

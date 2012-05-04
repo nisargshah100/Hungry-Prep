@@ -18,7 +18,7 @@ $ ->
   form = $('.edit_candidate')
 
   form.find(":input").blur ->
-    $.post form.attr("action"), $(form).serialize(), (res) ->
+    $.post form.attr("action"), $(form).serialize()+"&ajax=1", (res) ->
       console.log(res)
       document.getElementById("flash-save").innerHTML = "Saved"
       setTimeout("document.getElementById('flash-save').innerHTML = ''", 1000)
