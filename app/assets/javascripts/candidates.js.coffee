@@ -17,7 +17,7 @@ id = $.parseQuerystring()["id"]
 $ ->
   form = $('.edit_candidate')
 
-  form.children(":input").blur ->
+  form.find(":input").blur ->
     $.post form.attr("action"), $(form).serialize(), (res) ->
       console.log(res)
       document.getElementById("flash-save").innerHTML = "Saved"

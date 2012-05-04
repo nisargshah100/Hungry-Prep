@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   
   def edit
+    @candidate = Candidate.find(params[:id])
   end
 
   def show
@@ -8,6 +9,7 @@ class CandidatesController < ApplicationController
   end
 
   def update
+    @candidate = Candidate.find(params[:id])
     if @candidate.update_attributes(params[:candidate])
       redirect_to candidate_path(@candidate), notice: "Successfully Saved"
     else
