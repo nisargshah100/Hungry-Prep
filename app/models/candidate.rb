@@ -2,8 +2,9 @@ class Candidate < ActiveRecord::Base
   extend Forwardable
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number, :reviewer_ids, :profile_img
  
-  has_many :reviews
   has_many :candidate_reviewers
+  has_many :responses
+  has_many :reviews
   has_many :reviewers, through: :candidate_reviewers
   has_many :statuses
 

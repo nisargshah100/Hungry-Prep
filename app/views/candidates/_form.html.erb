@@ -1,5 +1,5 @@
 <div style="color:red;" id="flash-save"></div>
-<%= form_for @candidate, validate: true do |f| %>
+<%= simple_form_for @candidate, validate: true do |f| %>
 
   <fieldset class="user-box">
     <h2>Personal Info</h2>
@@ -28,17 +28,10 @@
     <h2>Questionnaire</h2>
     <p>Answer each question as succintly as you deem fit.</p>
     <ul>
-      <li>
-        <%= f.label :long_answer_1,"#{Question.find_by_id(1).text}" %>
-        <%= f.text_field :long_answer_1 %>
-      </li>
-      <li>
-        <%= f.label :long_answer_2, "#{Question.find_by_id(2).text}" %>
-        <%= f.text_field :long_answer_2 %>
-      </li>
-        <%= f.label :long_answer_3, "#{Question.find_by_id(3).text}" %>
-        <%= f.text_field :long_answer_3 %>
-      </li>
+      <% @questions.each do |question| %>
+        <li><%= question.title %>
+        <%= text_field_tag "questions[#{question.id}]" %></li>
+        <% end %>
     </ul>
   </fieldset>
 
