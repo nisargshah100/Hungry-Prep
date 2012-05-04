@@ -19,7 +19,7 @@ reviewers = User.create([{name: 'Reviewer 1', email: 'reviewer1@hungrymachine.co
 admin = User.create(name: "Admin", email: 'admin@livingsocial.com', password: 'foobar', role: 'admin')
 
 candidates.each do |user|
-  user.create_candidate(youtube_link: 'https://www.youtube.com/watch?v=QsbmrCtiEUU')
+  user.create_candidate(youtube_link: 'https://www.youtube.com/watch?v=QsbmrCtiEUU', city: 'Washington', state: 'DC', phone: rand(9)*10)
 end
 
 reviewers.each do |user|
