@@ -4,6 +4,7 @@ HungryPrep::Application.routes.draw do
   root :to => "home#index"
 
   resources :candidates
+  resources :questions
 
   namespace :admin do
     resources :candidates
