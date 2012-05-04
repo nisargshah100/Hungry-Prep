@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(:version => 20120504033414) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "text"
-    t.string   "last_editor", :default => "Admin"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "last_editor_id", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "reviewers", :force => true do |t|
