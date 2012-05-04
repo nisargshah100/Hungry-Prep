@@ -6,7 +6,8 @@ class Admin::CandidatesController < Admin::AdminController
     if params[:status].blank?
       @candidates = Candidate.all
     else
-      @candidates = Candidate.find_by_sql(["select candidates.* from candidates INNER JOIN statuses ON statuses.candidate_id == candidates.id WHERE statuses.status == ?;", params[:status]])
+      # @candidates = Candidate.find_by_sql(["select candidates.* from candidates INNER JOIN statuses ON statuses.candidate_id == candidates.id WHERE statuses.status == ?;", params[:status]])
+      @candidates = Candidate.all.select { |candidate| candidate.status.status == params[:status].to_i }
     end
   end
 
