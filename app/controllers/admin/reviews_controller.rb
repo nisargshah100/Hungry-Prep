@@ -7,6 +7,7 @@ class Admin::ReviewsController < Admin::AdminController
   def new
     @candidate = Candidate.find(params[:candidate_id])
     @review = Review.new
+    @reviewer = current_user.reviewer
   end
 
   def create

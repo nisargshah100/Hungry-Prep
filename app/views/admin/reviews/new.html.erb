@@ -25,8 +25,11 @@
     <h3>Why does this candidate want to be in Hungry Academy?</h3>
     <%= f.text_area :why_hungry %>
   </fieldset>
+  <%= f.hidden_field :reviewer_id, value: @reviewer.id %>
 
   <fieldset class="actions">
     <%= f.submit :class => 'button primary' %>
   </fieldset>
+  
+  
   <% end %>
