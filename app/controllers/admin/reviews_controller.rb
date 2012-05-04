@@ -1,5 +1,5 @@
 class Admin::ReviewsController < Admin::AdminController
-  before_filter :lookup_reviews, only: [:edit, :show, :update, :destroy]
+  before_filter :lookup_review, only: [:edit, :show, :update, :destroy]
 
   def index
   end
@@ -37,12 +37,12 @@ class Admin::ReviewsController < Admin::AdminController
 
   private
   def lookup_candidate
-    @candidate = Candidate.find(params[:candidate_id])
+    @candidate = Candidate.includes(:reviews).where(id: params[:candidate_id])
   end
 
-  def lookup_reviews
+  def lookup_review
     lookup_candidate
-    @candidate.reviews
+    @candidate.first.reviews.find(params[:id])
   end
 
 end

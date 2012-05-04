@@ -31,11 +31,14 @@ ActiveRecord::Schema.define(:version => 20120504060744) do
     t.string   "youtube_link"
     t.string   "gist_link"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "status"
     t.integer  "milestone_id"
     t.string   "profile_img"
+    t.text     "long_answer_1"
+    t.text     "long_answer_2"
+    t.text     "long_answer_3"
   end
 
   create_table "milestones", :force => true do |t|

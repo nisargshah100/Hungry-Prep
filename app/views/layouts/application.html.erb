@@ -10,13 +10,13 @@
 <body>
 <header class="global-header">
   <div class="header-inner container">
-    <h1 class="logo">Hungry Academy</h1>
+    <h1 class="logo"><%= link_to "Hungry Academy", "/" %></h1>
 
     <div class="account columns six">
       <% if current_user %>
         <span class="user"><%= current_user.name %></span>
         <span class="last-saved">Last saved at 10:01 pm 5/4/2012</span>
-        <span class="user-actions"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>        
+        <span class="user-actions"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>
       <% end %>
     </div>
   </div>
@@ -26,7 +26,7 @@
 </div>
 <div class="page-wrap">
   <div class="page-content">
-    
+
     <%= yield %>
   </div>
 </div>

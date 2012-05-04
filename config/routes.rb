@@ -11,7 +11,6 @@ HungryPrep::Application.routes.draw do
     resources :candidates do 
       resources :reviews
     end
-
     resources :reviewers
     resources :candidate_reviewers
     resources :questions
