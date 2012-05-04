@@ -1,0 +1,9 @@
+<h2>A great question</h2>
+
+<h3><%= @question.title %></h3>
+<p><%= @question.text %></p>
+<p>Last edited by: <%= @question.last_editor %>
+<p><%= link_to "Edit Question", edit_question_path(@question) %> | <%= link_to "Delete Question", question_path(@question), method: :delete, confirm: "Really delete this question?" %></p>
+<p>
+  <%= link_to "All Questions", questions_path %>
+</p>

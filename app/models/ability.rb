@@ -21,6 +21,7 @@ class Ability
       can :manage, CandidateReviewer
       can :manage, Reviewer
       can :manage, Milestone
+      can :manage, :questions
       # can :manage, Response
     end
 

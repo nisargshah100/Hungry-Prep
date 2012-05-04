@@ -12,6 +12,14 @@ body {
   font-size: 1.4rem;
 }
 
+header,
+nav,
+section,
+article,
+aside {
+  display: block;
+}
+
 a {
   color: $slushie;
   text-decoration: none;
