@@ -1,0 +1,16 @@
+.user-box {
+  @include border-radius(4px);
+  background: $gray_1;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.user-box header {
+  margin-bottom: 10px;
+}
+
+.user-box h2 {
+  color: $slushie;
+  font-size: 3.0rem;
+  font-family: $rounded_font;
+}
