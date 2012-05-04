@@ -22,6 +22,7 @@ class Ability
       can :manage, Reviewer
       can :manage, Milestone
       can :manage, Question
+      can :manage, Status
       # can :manage, Response
     end
 
