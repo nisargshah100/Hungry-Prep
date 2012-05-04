@@ -1,0 +1,39 @@
+  var chart;
+  $(document).ready(function() {
+    chart = new Highcharts.Chart({
+      chart: {
+        renderTo: 'container',
+        zoomType: 'xy'
+      },
+      title: {
+        text: 'Candidate Progress'
+      },
+      xAxis: [{
+        categories: [ "Unfinished", "Submitted", "Unreviewed", "Interviewed", "Decision Made" ]
+      }],
+      yAxis: [{
+        title: "",
+        labels: {
+          formatter: function() {
+            return this.value +'%';
+          },
+          style: {
+            color: '#89A54E'
+          },
+        },
+      },
+      ],
+      tooltip: {
+        formatter: function() {
+          return ''+
+            this.x +': '+ this.y + "%";
+        }
+      },
+      series: [{
+        name: 'Status',
+        color: '#4572A7',
+        type: 'column',
+        data: [  90, 81, 72, 48, 23]
+      }]
+    });
+  });
