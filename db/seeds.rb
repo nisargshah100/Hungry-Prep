@@ -26,10 +26,6 @@ reviewers.each do |user|
   user.create_reviewer
 end
 
-candidates.each_with_index do |user, i|
-  user.candidate.reviewers << reviewers[i].reviewer
-end
-
 Question.create([{
   text: 'What wild whim led Willy Whitman to wander, whistling on a wharf, where a whale might reel and whirl' }])
 Question.create([{
