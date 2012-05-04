@@ -1,6 +1,6 @@
 class Milestone < ActiveRecord::Base
   attr_accessible :reviews_required, :name
-
+  
   has_many :candidates, through: :reviews
   has_many :reviewers, through: :reviews
 
