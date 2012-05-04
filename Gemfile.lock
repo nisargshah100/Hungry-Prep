@@ -148,11 +148,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  client_side_validations
-=======
   bourbon
->>>>>>> d8340063b4467cd9d53d13cd143cbeabe4b384af
+  client_side_validations
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
