@@ -1,8 +1,8 @@
 class Admin::CandidatesController < Admin::AdminController
-  load_and_authorize_resource
+  authorize_resource
 
   def index
-    @candidates = Candidates.scoped.where("status <> 'Declined'")
+    @candidates = Candidate.scoped.where("status <> 'Declined'")
   end
 
 

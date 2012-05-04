@@ -1,3 +1,7 @@
+<% Status::STATUSES.each do |status| %>
+  <%= link_to status, admin_candidates_path(status: status) %>
+<% end %>
+
 <% @candidates.each do |candidate| %>
   <%= image_tag candidate.profile_img %>
   <%= link_to candidate.name, admin_candidate_path(candidate)%>
