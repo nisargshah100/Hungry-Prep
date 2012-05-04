@@ -1,6 +1,8 @@
 <div style="color:red;" id="flash-save"></div>
 <%= form_for @candidate, validate: true do |f| %>
 
+  <fieldset class="user-box">
+    <h2>Personal Info</h2>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br />
@@ -9,16 +11,26 @@
   <br />
   <%= f.label :state %>
   <%= f.select :state, options_for_select(STATES) %>
-  <br />
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  </fieldset>
+
+  <fieldset class="user-box">
+    <h2>Moving Parts</h2>
+    
   <%= f.label :youtube_link %>
   <%= f.text_field :youtube_link %>
   <br />
   <%= f.label :gist_link %>
   <%= f.text_field :gist_link %>
   <br />
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
-  <br />
+  </fieldset>
+
+  <fieldset class="user-box">
+    <h2>Additional Info</h2>
+    
   <%= f.label :gender %>
   <%= f.select :gender, options_for_select([["Male","Male"], ["Female", "Female"], ["Decline to Self Identify", "Decline to Self Identify"]]) %>
   <br />
@@ -38,7 +50,11 @@
   <br />
   <%= f.radio_button :ethnicity, "Decline" %>Decline to Self Identify
   <br />
+  </fieldset>
+
+  <fieldset class="form-actions">
   <%= f.submit %>
+  </fieldset>
 
 
 <% end %>
