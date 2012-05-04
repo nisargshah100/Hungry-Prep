@@ -1,4 +1,6 @@
-class Admin::CandidatesController < ApplicationController
+class Admin::CandidatesController < Admin::AdminController
+  load_and_authorize_resource
+
   # before_filter :validate_admin
   before_filter :lookup_candidate, only: [:show, :update, :edit]
 

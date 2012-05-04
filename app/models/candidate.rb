@@ -1,5 +1,6 @@
 class Candidate < ActiveRecord::Base
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :phone, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status
+  has_many :reviews
   has_many :reviewers, through: :reviews
   belongs_to :user
   belongs_to :milestone
@@ -8,6 +9,18 @@ class Candidate < ActiveRecord::Base
 
   def name
     user.name
+  end
+
+  def phone_number
+    phone
+  end
+
+  def phone_number=(num)
+    phone = num
+  end
+
+  def name=(new_name)
+    user.name = new_name
   end
 
   def email
