@@ -1,17 +1,15 @@
 class Review < ActiveRecord::Base
-  attr_accessible :body, :candidate_id, :reviewer_id, :status, :communication, :reasoning
+  attr_accessible :why_livingsocial, :why_hungry, :candidate_id, :reviewer_id, :status, :recommendation
 
   belongs_to :candidate
   belongs_to :reviewer
   belongs_to :milestone
 
-  RATINGS = %w( communication reasoning )
+  RATINGS = %w( recommendation )
 
-  validates :communication, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
-  validates :reasoning, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
 
   def completed?
-    not self.body.blank?
+    !why_livingsocial.blank? && !why_hungry.blank?
   end
 
   def total_score

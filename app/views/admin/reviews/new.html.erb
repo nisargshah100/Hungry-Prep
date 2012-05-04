@@ -1,18 +1,32 @@
-New Review
-<br />
-<ul>
-  <li><%= @candidate.name %></li>
-</ul>
+  <h1>Review: <%= @candidate.name %></h1>
 
-Ratings
-<br />
-<br />
+  <%= simple_form_for @review, url: admin_candidate_reviews_path(@candidate) do |f| %>
 
-<h3>General Comments</h3>
-<br />
-<%= simple_form_for @review, url: admin_candidate_reviews_path(@candidate) do |f| %>
-<%= f.input :communication, :collection => 1..10, :as => :select, :default => 1 %>
-<%= f.input :reasoning, :collection => 1..10, :as => :select, :default => 1 %>
-<%= f.input :body %>
-<%= f.submit %>
-<% end %>
+  <fieldset>
+    <h3>Should we hire this candidate?</h3>
+    <ul>
+      <li class="inline">
+        <%= f.radio_button :recommendation, "Yes", :class => "radio" %>
+        <%= label :review_recommendation, "yes", "Yes", :class => "radio-label" %>
+      </li>
+      <li class="inline">
+        <%= f.radio_button :recommendation, "No", :class => "radio" %>
+        <%= label :review_recommendation, "no", "No", :class => "radio-label" %>
+      </li>
+    </ul>
+  </fieldset>
+  
+  <fieldset>
+    <h3>Why does this candidate want to work at LivingSocial?</h3>
+    <%= f.text_area :why_livingsocial %>
+  </fieldset>
+
+  <fieldset>
+    <h3>Why does this candidate want to be in Hungry Academy?</h3>
+    <%= f.text_area :why_hungry %>
+  </fieldset>
+
+  <fieldset class="actions">
+    <%= f.submit :class => 'button primary' %>
+  </fieldset>
+  <% end %>

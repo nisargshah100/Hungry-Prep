@@ -2,6 +2,10 @@ body {
   background: $gray_1;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
 .page-wrap.page-admin {
   padding-top: 30px;
   position: relative;
@@ -49,4 +53,27 @@ body {
 .user-snapshot .user-details {
   font-weight: bold;
   padding-left: 10px;
+}
+
+// Reviewing candidates
+
+form li.inline {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+form li.inline:first-child {
+  margin-left: 0;
+}
+
+.new_review fieldset {
+  margin-bottom: 30px;
+}
+
+.new_review textarea {
+  width: 100%;
+}
+
+.new_review h3 {
+  margin-bottom: 8px;
 }

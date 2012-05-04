@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504095547) do
+ActiveRecord::Schema.define(:version => 20120504125844) do
 
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(:version => 20120504095547) do
 
   create_table "questions", :force => true do |t|
     t.text     "text"
-    t.string   "last_editor", :default => "Admin"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "last_editor_id", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "responses", :force => true do |t|
@@ -73,12 +73,12 @@ ActiveRecord::Schema.define(:version => 20120504095547) do
   create_table "reviews", :force => true do |t|
     t.integer  "reviewer_id"
     t.integer  "candidate_id"
-    t.text     "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "status"
-    t.integer  "communication"
-    t.integer  "reasoning"
+    t.string   "recommendation"
+    t.text     "why_livingsocial"
+    t.text     "why_hungry"
   end
 
   create_table "statuses", :force => true do |t|
