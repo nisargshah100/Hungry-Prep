@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>HungryPrep</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application_admin", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag 'jquery', 'rails.validations' %>
   <%= csrf_meta_tags %>
@@ -16,17 +16,15 @@
       <% if current_user %>
         <span class="user"><%= current_user.name %></span>
         <span class="last-saved">Last saved at 10:01 pm 5/4/2012</span>
-        <span class="user-actions"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>        
+        <span class="user-actions"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></span>
       <% end %>
     </div>
   </div>
 </header>
-<div class="cobrand container">
-  powered by <span class="logo logo-ls">LivingSocial</span> &amp; <span class="logo logo-jumpstart">Jumpstart Labs</span>
-</div>
 <div class="page-wrap">
+
+
   <div class="page-content">
-    
     <%= yield %>
   </div>
 </div>

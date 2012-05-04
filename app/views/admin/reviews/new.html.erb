@@ -1,5 +1,18 @@
-<%= form_for@review, url: admin_candidate_reviews_path(1) do |f| %>
-  <%= Question.all do |q| %> 
-    <%= q.inspect %>
-  <% end %>
+New Review
+<br />
+<ul>
+  <li><%= @candidate.name %></li>
+</ul>
+
+Ratings
+<br />
+<br />
+
+General Comments
+<br />
+<%= simple_form_for @review, url: admin_reviews_path do |f| %>
+<%= f.input :communication, :collection => 1..10, :as => :select, :default => 1 %>
+<%= f.input :reasoning, :collection => 1..10, :as => :select, :default => 1 %>
+<%= f.input :body %>
+<%= f.submit %>
 <% end %>

@@ -14,6 +14,7 @@ class Status < ActiveRecord::Base
   STATUSES = [ "Application unfinished", "Application submitted",
     "Review started", "Review finished", "Phone interview",
     "Declined", "Accepted" ]
+    
   class_eval do
     STATUSES.each_with_index do |status, index|
       define_method("set_#{status.to_method_name}!") do

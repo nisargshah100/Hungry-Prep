@@ -16,7 +16,7 @@ reviewers = User.create([{name: 'Reviewer 1', email: 'reviewer1@hungrymachine.co
                     {name: 'Reviewer 3', email: 'reviewer3@hungrymachine.com', password: 'foobar'},
                     ])
 
-admin = User.create(name: "JQ", email: 'jacqueline.chenault@livingsocial.com', password: 'askdjas', role: 'admin')
+admin = User.create(name: "Admin", email: 'admin@livingsocial.com', password: 'foobar', role: 'admin')
 
 candidates.each do |user|
   user.create_candidate(youtube_link: 'https://www.youtube.com/watch?v=QsbmrCtiEUU')
