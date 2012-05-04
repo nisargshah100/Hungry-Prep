@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
   attr_accessible :body, :candidate_id, :reviewer_id, :status, :communication, :reasoning
+
   belongs_to :candidate
   belongs_to :reviewer
   belongs_to :milestone

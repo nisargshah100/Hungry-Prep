@@ -1,5 +1,5 @@
 <div style="color:red;" id="flash-save"></div>
-<%= form_for @candidate, validate: true do |f| %>
+<%= simple_form_for @candidate, validate: true do |f| %>
 
   <fieldset class="user-box">
     <h2>Personal Info</h2>
@@ -18,8 +18,8 @@
         <%= f.select :state, options_for_select(STATES) %>
       </li>
       <li>
-        <%= f.label :phone_number %>
-        <%= f.text_field :phone_number %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
       </li>
     </ul>
   </fieldset>
@@ -27,18 +27,12 @@
   <fieldset class="user-box">
     <h2>Questionnaire</h2>
     <p>Answer each question as succintly as you deem fit.</p>
+    <br />
     <ul>
-      <li>
-        <%= f.label :long_answer_1,"#{Question.find_by_id(1).text}" %>
-        <%= f.text_field :long_answer_1 %>
-      </li>
-      <li>
-        <%= f.label :long_answer_2, "#{Question.find_by_id(2).text}" %>
-        <%= f.text_field :long_answer_2 %>
-      </li>
-        <%= f.label :long_answer_3, "#{Question.find_by_id(3).text}" %>
-        <%= f.text_field :long_answer_3 %>
-      </li>
+      <% @questions.each do |question| %>
+        <li><%= question.text %>
+        <%= text_field_tag "questions[#{question.id}]", question.response_for_candidate_id(@candidate.id) %></li>
+        <% end %>
     </ul>
   </fieldset>
 

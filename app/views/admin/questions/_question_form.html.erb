@@ -1,9 +1,5 @@
-<%= form_for @question, url: admin_questions_path do |f| %>
+<%= form_for @question, url: path do |f| %>
 
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
   <p>
     <%= f.label :text %>
     <%= f.text_field :text %>

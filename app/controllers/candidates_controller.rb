@@ -2,6 +2,8 @@ class CandidatesController < ApplicationController
 
   def edit
     @candidate = Candidate.find(params[:id])
+    @questions = Question.all
+    @responses = @candidate.responses
   end
 
   def show
@@ -10,6 +12,8 @@ class CandidatesController < ApplicationController
 
   def update
     @candidate = Candidate.find(params[:id])
+    @candidate.update_responses(params[:questions])
+
     if @candidate.update_attributes(params[:candidate])
       redirect_to candidate_path(@candidate), notice: "Successfully Saved"
     else

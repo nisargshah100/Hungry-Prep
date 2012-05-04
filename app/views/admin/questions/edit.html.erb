@@ -1,3 +1,3 @@
 <h2>Edit this question</h2>
 
-<%= render partial: 'question_form' %>
+<%= render 'question_form', path: admin_question_path(@question.id) %>

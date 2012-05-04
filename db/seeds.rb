@@ -31,8 +31,8 @@ Candidate.find(1).reviewers << Reviewer.find(2)
 Candidate.find(2).reviewers << Reviewer.find(3)
 
 Question.create([{
-  title: 'What wild whim?', text: 'What wild whim led Willy Whitman to wander, whistling on a wharf, where a whale might reel and whirl' }])
+  text: 'What wild whim led Willy Whitman to wander, whistling on a wharf, where a whale might reel and whirl' }])
 Question.create([{
-  title: 'Round the rough...', text: 'Round the rough and rugged rocks, the ragged rascals rudely ran'}])
+  text: 'Round the rough and rugged rocks, the ragged rascals rudely ran'}])
 Question.create([{
-  title: 'She sells...', text: "She sells seashells by the seashore, Sister Suzy's sewing shirts for sailors"}])
+  text: "She sells seashells by the seashore, Sister Suzy's sewing shirts for sailors"}])

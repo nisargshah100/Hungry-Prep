@@ -1,9 +1,11 @@
 class Candidate < ActiveRecord::Base
   extend Forwardable
-  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship, :state, :work_auth, :youtube_link, :user, :status, :name, :phone_number, :reviewer_ids, :profile_img
+  attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship,
+    :state, :work_auth, :youtube_link, :user, :status, :name, :phone, :reviewer_ids, :profile_img
  
-  has_many :reviews
   has_many :candidate_reviewers
+  has_many :responses
+  has_many :reviews
   has_many :reviewers, through: :candidate_reviewers
   has_many :statuses
 
@@ -14,16 +16,16 @@ class Candidate < ActiveRecord::Base
   after_create :initialize_milestone, :add_status
   def_delegators :user, :name, :email
 
-  def phone_number
-    phone
-  end
-
-  def phone_number=(num)
-    phone = num
-  end
-
   def name=(new_name)
     user.name = new_name
+  end
+
+  def update_responses(responses_hash)
+    responses_hash.each do |question_id, response|
+      r = responses.find_or_create_by_question_id( question_id.to_i)
+      r.body = response
+      r.save
+    end
   end
 
   def status
