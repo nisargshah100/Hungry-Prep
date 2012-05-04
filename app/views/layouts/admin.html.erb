@@ -25,9 +25,9 @@
   <nav class="admin-nav container">
     <ul>
       <li><%= link_to "Dashboard", admin_path %></li>
-      <li><%= link_to "Candidates", "#" %></li>
-      <li><%= link_to "Assign Reviewers", "#" %></li>
-      <li><%= link_to "Candidate Reviews", "#" %></li>
+      <li><%= link_to "Candidates", admin_candidate_reviewers_path %></li>
+      <li><%= link_to "Assign Reviewers", admin_candidate_reviewers_path %></li>
+      <li><%= link_to "New Candidate Reviews", new_admin_candidate_review_path(1) %></li>
     </ul>
   </nav>
 </div>
