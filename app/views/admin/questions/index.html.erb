@@ -1,0 +1,19 @@
+<h2>Questions</h2>
+
+<%= link_to "Add a Question", new_admin_question_path %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.title %></td>
+        <td><%= link_to 'Details', admin_question_path(question) %> | <%= link_to 'Edit', edit_admin_question_path(question) %> | <%= link_to 'Delete', admin_question_path(question), method: :delete  %></td>
+      </tr>
+    <% end %>
+  </thead>
+</table
