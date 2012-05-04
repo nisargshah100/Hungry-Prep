@@ -2,9 +2,11 @@
   Candidate Info
   <br />
   <ul>
-    <li><%= @candidate.name %></li>
-    <li><%= @candidate.email %></li>
-    <li></li>
+    <li>Name: <%= @candidate.name %></li>
+    <li>Email: <%= @candidate.email %></li>
+    <li>Phone: <%= @candidate.phone %></li>
+    <li>Status: <%= @candidate.status.status %></li>
+    <li>Rating: <%= @candidate.total_score %></li>
   </ul>
 
   Reviewers

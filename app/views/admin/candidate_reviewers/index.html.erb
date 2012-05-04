@@ -1,4 +1,5 @@
   <ul class="filter-nav">
+      <li <% if params[:status].blank?      %> class="current" <% end %> ><%= link_to "All", admin_candidates_path, :class => "btn" %> </li>
     <% Status::STATUSES.each_with_index do |status, idx| %>
       <li <% if idx == params[:status].to_i %> class="current" <% end %> ><%= link_to status, admin_candidates_path(status: idx), :class => "btn" %></li>
     <% end %>

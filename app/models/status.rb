@@ -12,7 +12,7 @@ class Status < ActiveRecord::Base
   belongs_to :user
   attr_accessible :status_id
 
-  STATUSES = [ "All", "Unfinished", "Submitted", "Unreviewed", "Interviewed", "Declined", "Accepted" ]
+  STATUSES = [ "Unfinished", "Submitted", "Unreviewed", "Interviewed", "Declined", "Accepted" ]
     
   class_eval do
     STATUSES.each_with_index do |status, index|
