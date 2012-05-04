@@ -42,5 +42,8 @@ class Status < ActiveRecord::Base
     STATUSES[status]
   end
 
+  def to_s
+    get_status
+  end
 
 end

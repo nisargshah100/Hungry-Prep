@@ -1,11 +1,10 @@
 class CandidatesController < ApplicationController
-  before_filter :lookup_candidate, only: [:edit, :show, :update]
-
+  
   def edit
-
   end
 
   def show
+    @candidate = Candidate.find(params[:id])
   end
 
   def update
