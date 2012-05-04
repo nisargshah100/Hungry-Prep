@@ -9,8 +9,8 @@
       <%= image_tag "/assets/blank_user.gif" %>
     <% end %>
     </div>
-      
-      
+
+
     <h1><%= @candidate.name %></h1>
 
     <section class="meta">
@@ -22,7 +22,6 @@
 
       <ul class="status">
         <li><b>Status:</b> <%= Status::STATUSES[@candidate.status.status] %></li>
-        <li><b>Rating:</b> <%= @candidate.total_score %></li>
       </ul>
     </section>
 
@@ -63,19 +62,44 @@
     <% if @candidate.reviewers.include?(current_user.reviewer) %>
       <%= link_to "Add a New Review", new_admin_candidate_review_path(@candidate.id) %>
     <% end %>
-
-  <table>
     <% if @candidate.reviewers.empty? %>
-      <tr>There are no reviewers</tr>
+      <p>There are no reviewers</p>
     <% end %>
     <% @candidate.reviewers.each do |reviewer| %>
-      <tr>
-        <td><%= reviewer.name %></td>
-        <td><%= reviewer.email %></td>
-      </tr>
+      <p><%= reviewer.name %> | <%= reviewer.email %></p>
     <% end %>
-  </table>
 
+  </section>
+
+
+
+  <section class="review">
+
+    <h2>Reviews</h2>
+  <div>
+    <% if @candidate.reviewers.empty? %>
+      <p>There are no reviews</p>
+    <% end %>
+    <% @candidate.reviews.each do |review| %>
+
+    <ul class="review-summary">
+      <li>
+        <p><strong>Hire?</strong></p>
+        <%= review.recommendation %>
+      </li>
+      <li>
+        <p><strong>Why does this candidate want to work at LivingSocial?</strong></p>
+        <p><%= review.why_livingsocial %></p>
+      </li>
+      <li>
+        <p><strong>Why does this candidate want to be in Hungry Academy?</strong></p>
+        <p><%= review.why_hungry %></p>
+      </li>
+    </ul>
+
+    <!-- <p><%#= review.reviewer.name %> | <%#= review.reviewer.email %></p> -->
+    <% end %>
+  </div>
   </section>
 
 </div>

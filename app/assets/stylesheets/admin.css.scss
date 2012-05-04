@@ -6,6 +6,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+strong {
+  font-weight: bold;
+}
+
 .page-wrap.page-admin {
   padding-top: 30px;
   position: relative;
@@ -66,7 +70,8 @@ form li.inline:first-child {
   margin-left: 0;
 }
 
-.new_review fieldset {
+.new_review fieldset,
+section.reviewer {
   margin-bottom: 30px;
 }
 
@@ -76,4 +81,14 @@ form li.inline:first-child {
 
 .new_review h3 {
   margin-bottom: 8px;
+}
+
+.review-summary {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-summary li {
+  margin-bottom: 10px;
 }

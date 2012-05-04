@@ -1,14 +1,16 @@
-Review
-<br />
-<ul>
-  <li><%= @candidate.name %></li>
+<h1>Review: <%= @candidate.name %></h1>
+
+<ul class="review-summary">
+  <li>
+    <h2>Hire?</h2>
+    <%= @review.recommendation %>
+  </li>
+  <li>
+    <h2>Why does this candidate want to work at LivingSocial?</h2>
+    <p><%= @review.why_livingsocial %></p>
+  </li>
+  <li>
+    <h2>Why does this candidate want to be in Hungry Academy?</h2>
+    <p><%= @review.why_hungry %></p>  
+  </li>  
 </ul>
-
-Hire?
-<br />
-<%= @review.hire %>
-<br />
-
-General Comments
-<br />
-<%= @review.why_livingsocial %>
