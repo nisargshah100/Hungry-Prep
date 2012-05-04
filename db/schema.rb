@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504033414) do
+ActiveRecord::Schema.define(:version => 20120504044059) do
 
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
@@ -63,9 +63,11 @@ ActiveRecord::Schema.define(:version => 20120504033414) do
     t.integer  "reviewer_id"
     t.integer  "candidate_id"
     t.text     "body"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "status"
+    t.integer  "communication"
+    t.integer  "reasoning"
   end
 
   create_table "statuses", :force => true do |t|

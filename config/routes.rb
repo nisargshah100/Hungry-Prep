@@ -6,9 +6,13 @@ HungryPrep::Application.routes.draw do
   resources :candidates
 
   namespace :admin do
-    resources :candidates
+    resources :candidates do 
+      member do
+        resources :reviews
+      end
+    end
+
     resources :reviewers
-    resources :reviews
     resources :candidate_reviewers
     resources :questions
   end

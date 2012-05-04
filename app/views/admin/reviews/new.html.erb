@@ -1,0 +1,16 @@
+New Review
+<br />
+<ul>
+  <li><%= @candidate.name %></li>
+</ul>
+
+Ratings
+<br />
+<br />
+
+General Comments
+<br />
+<%= simple_form_for @review, url: admin_reviews_path do |f| %>
+<%= f.input :body %>
+<%= f.submit %>
+<% end %>

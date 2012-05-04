@@ -5,6 +5,7 @@ class Admin::ReviewsController < Admin::AdminController
   end
 
   def new
+    @candidate = Candidate.find(params[:id])
     @review = Review.new
   end
 
