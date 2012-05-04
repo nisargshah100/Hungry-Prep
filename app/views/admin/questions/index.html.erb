@@ -12,7 +12,7 @@
       <tr>
         <td><%= question.id %></td>
         <td><%= question.title %></td>
-        <td><%= link_to 'Details', admin_question_path(question) %> | <%= link_to 'Edit', edit_admin_question_path(question) %> | <%= link_to 'Delete', admin_question_path(question), method: :delete  %></td>
+        <td><%= link_to 'Edit', edit_admin_question_path(question) %> | <%= link_to 'Delete', admin_question_path(question), method: :delete  %></td>
       </tr>
     <% end %>
   </thead>

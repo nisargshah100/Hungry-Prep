@@ -2,6 +2,8 @@ HungryPrep::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => "home#index"
+  match '/admin/candidates', :to => 'admin/candidate_reviewers#index'
+  match '/admin', :to => 'admin/dashboard#show'
 
   resources :candidates
 
@@ -15,6 +17,5 @@ HungryPrep::Application.routes.draw do
     resources :questions
   end
 
-  match '/admin', :to => 'admin/dashboard#show'
 
 end
