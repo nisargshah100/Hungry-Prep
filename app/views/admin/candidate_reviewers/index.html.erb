@@ -1,23 +1,15 @@
-  <ul class="filter-nav">
-      <li <% if params[:status].blank?      %> class="current" <% end %> ><%= link_to "All", admin_candidates_path, :class => "btn" %> </li>
-
-    <% Status::STATUSES.each_with_index do |status, idx| %>
-      <li <% if idx == params[:status].to_i %> class="current" <% end %> ><%= link_to status, admin_candidates_path(status: idx), :class => "btn" %></li>
-    <% end %>
-  </ul>
-
   <table class="table table-bordered table-striped table-wide admin-table">
     <thead>
       <th>Name</th>
       <th>E-mail</th>
       <th>Status</th>
-      <th>Reviewer</th>
+      <th>Reviewers</th>
     </thead>
     <% @candidates.each do |candidate| %>
       <tr>
         <td><%= link_to candidate.name, admin_candidate_path(candidate.id) %></td>
         <td><%= candidate.email %></td>
-        <td>
+        <td class="status">
           <%= simple_form_for :status, :url => admin_status_path(candidate.id), :method => :put do |f| %>
             <%= select_tag :status, options_for_select(Status::STATUSES, candidate.status) %>
             <%= f.submit :class => "button secondary small" %>

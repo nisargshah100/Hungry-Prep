@@ -75,9 +75,16 @@ table .span12                   { float: none; width: 924px; margin-left: 0; }
 .table-wide { width: 100%; }
 
 // admin table
-.admin-table .reviewer { text-align: center;}
-.admin-table .reviewer select {
+.admin-table .reviewer,
+.admin-table .status { text-align: center;}
+
+.admin-table .reviewer select,
+.admin-table .status select {
   display: block;
   margin: 10px 0;
   width: 100%;
+}
+
+.admin-table .reviewer label {
+  display: none;
 }
