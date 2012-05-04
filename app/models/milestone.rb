@@ -4,9 +4,9 @@ class Milestone < ActiveRecord::Base
   has_many :candidates, through: :reviews
   has_many :reviewers, through: :reviews
 
-
   def percent_completed
-    total_reviews_complted / total_reviews_required
+    percentage = ( total_reviews_completed / total_reviews_required ) * 100
+    percentage.round(2)
   end
 
   def total_reviews_required

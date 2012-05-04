@@ -1,11 +1,17 @@
-Candidate Info
+<h3>Candidate Dashboard</h3>
 <br />
-<ul>
-  <li><%= @candidate.name %></li>
-  <li><%= @candidate.email %></li>
-  <li></li>
-</ul>
-
-Status
-
-Actions to take
+<br />
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= @candidate.name %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @candidate.email %></td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td><%= @candidate.status %></td>
+  </tr>
+</table>

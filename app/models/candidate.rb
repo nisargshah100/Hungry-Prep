@@ -26,7 +26,7 @@ class Candidate < ActiveRecord::Base
   end
 
   def status
-    statuses.last.get_status
+    statuses.last
   end
 
   private
@@ -34,6 +34,11 @@ class Candidate < ActiveRecord::Base
   def initialize_milestone
     self.milestone = Milestone.first
   end
+
+  def add_status
+    statuses.create
+  end
+
 end
 # == Schema Information
 #
