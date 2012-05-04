@@ -1,7 +1,8 @@
 class Candidate < ActiveRecord::Base
   extend Forwardable
   attr_accessible :city, :criminal, :ethnicity, :gender, :gist_link, :race, :sponsorship,
-    :state, :work_auth, :youtube_link, :user, :status, :name, :phone, :reviewer_ids, :profile_img
+    :state, :work_auth, :youtube_link, :user, :status, :name, :phone, :reviewer_ids, :profile_img,
+    :resume
  
   has_many :candidate_reviewers
   has_many :responses
@@ -15,6 +16,8 @@ class Candidate < ActiveRecord::Base
   before_save :fetch_youtube_thumbnail
   after_create :initialize_milestone, :add_status
   def_delegators :user, :name, :email
+
+  mount_uploader :resume, ResumeUploader
 
   def name=(new_name)
     user.name = new_name

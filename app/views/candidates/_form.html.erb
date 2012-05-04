@@ -1,5 +1,5 @@
 <div style="color:red;" id="flash-save"></div>
-<%= simple_form_for @candidate, validate: true do |f| %>
+<%= simple_form_for @candidate, validate: true, :multipart => true do |f| %>
 
   <fieldset class="user-box">
     <h2>Personal Info</h2>
@@ -46,6 +46,18 @@
       <li>
         <%= f.label :gist_link %>
         <%= f.text_field :gist_link %>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="user-box">
+    <h2>Resume</h2>
+    <ul>
+      <li>
+        <%= f.input :resume %>
+      </li>
+      <li>
+        <%= @candidate.resume %>
       </li>
     </ul>
   </fieldset>
