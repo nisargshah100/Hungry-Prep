@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'client_side_validations'
 gem 'bourbon'
 gem 'cancan'
+gem 'youtube_it'
 
 # Gems used only for assets and not required
 # in production environments by default.

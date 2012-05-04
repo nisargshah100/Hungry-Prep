@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504013340) do
+ActiveRecord::Schema.define(:version => 20120504033414) do
 
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120504013340) do
     t.datetime "updated_at",   :null => false
     t.string   "status"
     t.integer  "milestone_id"
+    t.string   "profile_img"
   end
 
   create_table "milestones", :force => true do |t|
@@ -65,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20120504013340) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "status"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "status",       :default => 0
+    t.string   "candidate_id"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "users", :force => true do |t|

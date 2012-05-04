@@ -1,10 +1,6 @@
 class Admin::CandidatesController < Admin::AdminController
   load_and_authorize_resource
 
-  def index
-    @candidates = current_user.reviewer.candidates
-  end
-
   def edit
 
   end

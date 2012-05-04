@@ -1,12 +1,10 @@
 class CandidatesController < ApplicationController
-  before_filter :lookup_candidate, only: [:edit, :show, :update]
-
+  
   def edit
-
   end
 
   def show
-
+    @candidate = Candidate.find(params[:id])
   end
 
   def update
@@ -15,12 +13,6 @@ class CandidatesController < ApplicationController
     else
      redirect_to edit_candidate_path(@candidate), notice: "Please try again"
     end
-  end
-
-  private
-
-  def lookup_candidate
-    @candidate = current_user.candidate
   end
 
 end

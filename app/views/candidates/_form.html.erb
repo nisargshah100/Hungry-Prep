@@ -3,53 +3,82 @@
 
   <fieldset class="user-box">
     <h2>Personal Info</h2>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <br />
-  <%= f.label :state %>
-  <%= f.select :state, options_for_select(STATES) %>
 
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
-
+    <ul>
+      <li>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </li>
+      <li>
+        <%= f.label :state %>
+        <%= f.select :state, options_for_select(STATES) %>
+      </li>
+      <li>
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number %>
+      </li>
+    </ul>
   </fieldset>
 
   <fieldset class="user-box">
     <h2>Moving Parts</h2>
-    
-  <%= f.label :youtube_link %>
-  <%= f.text_field :youtube_link %>
-  <br />
-  <%= f.label :gist_link %>
-  <%= f.text_field :gist_link %>
-  <br />
+    <ul>
+      <li>
+        <%= f.label :youtube_link %>
+        <%= f.text_field :youtube_link %>
+      </li>
+      <li>
+        <%= f.label :gist_link %>
+        <%= f.text_field :gist_link %>
+      </li>
+    </ul>
   </fieldset>
 
   <fieldset class="user-box">
     <h2>Additional Info</h2>
-    
-  <%= f.label :gender %>
-  <%= f.select :gender, options_for_select([["Male","Male"], ["Female", "Female"], ["Decline to Self Identify", "Decline to Self Identify"]]) %>
-  <br />
-  <%= f.label :ethnicity %>
-  <br />
-  <%= f.radio_button :ethnicity, "White" %> White - A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.
-  <br />
-  <%= f.radio_button :ethnicity, "Black" %> Black or African American - A person having origins in any of the Black racial groups of Africa.
-  <br />
-  <%= f.radio_button :ethnicity, "Hawaiian" %> Native Hawaiian or Other Pacific Islander - A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.
-  <br />
-  <%= f.radio_button :ethnicity, "Asian" %> Asian - A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.
-  <br />
-  <%= f.radio_button :ethnicity, "Native American" %>American Indian or Alaska Native - A person having origins in any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment.
-  <br />
-  <%= f.radio_button :ethnicity, "Multiple" %>Two or More Races - All persons who identify with more than one of the above races.
-  <br />
-  <%= f.radio_button :ethnicity, "Decline" %>Decline to Self Identify
-  <br />
+
+    <ul>
+      <li>
+        <%= f.label :gender %>
+        <%= f.select :gender, options_for_select([["Male","Male"], ["Female", "Female"], ["Decline to Self Identify", "Decline to Self Identify"]]) %>
+      </li>
+
+      <h3>Ethnicity</h3>
+      <ul>
+        <li>
+          <%= f.radio_button :ethnicity, "White", :class => "radio" %>
+          <%= label :candidate_ethnicity, "white", "White - A person having origins in any of the original peoples of Europe, the Middle East, or North Africa", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Black", :class => "radio" %>
+          <%= label :candidate_ethnicity, "black", "Black or African American - A person having origins in any of the Black racial groups of Africa.", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Hawaiian", :class => "radio" %>
+          <%= label :candidate_ethnicity, "hawaiian", "Native Hawaiian or Other Pacific Islander - A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Asian", :class => "radio" %>
+          <%= label :candidate_ethnicity, "asian", "Asian - A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Native American", :class => "radio" %>
+          <%= label :candidate_ethnicity, "native_american", "American Indian or Alaska Native - A person having origins in any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment.", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Multiple", :class => "radio" %>
+          <%= label :candidate_ethnicity, "multiple", "Two or More Races - All persons who identify with more than one of the above races.", :class => "radio-label" %>
+        </li>
+        <li>
+          <%= f.radio_button :ethnicity, "Decline", :class => "radio" %>
+          <%= label :candidate_ethnicity, "decline", "Decline to Self Identify", :class => "radio-label" %>
+        </li>
+      </ul>
+    </ul>
   </fieldset>
 
   <fieldset class="form-actions">
