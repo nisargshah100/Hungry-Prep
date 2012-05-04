@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(:version => 20120504072645) do
 
   create_table "questions", :force => true do |t|
     t.text     "text"
-    t.integer  "last_editor_id", :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "last_editor", :default => "Admin"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "responses", :force => true do |t|
