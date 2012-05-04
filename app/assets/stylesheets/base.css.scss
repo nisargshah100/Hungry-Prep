@@ -25,6 +25,22 @@ a {
   text-decoration: none;
 }
 
+.page-content {
+  padding-bottom: 40px;
+}
+
+.button {
+  @include border-radius(4px);
+  padding: 8px 10px;
+}
+
+.button.primary {
+  background: $slushie;
+  border: 1px solid $blue;
+  color: #fff;
+  font-weight: bold;
+}
+
 .logo {
   display: inline-block;
   text-indent: -9999px;

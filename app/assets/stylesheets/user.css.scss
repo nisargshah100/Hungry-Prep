@@ -23,7 +23,11 @@
   display: block;
 }
 
-.edit_candidate label {
+.edit_candidate label,
+.edit_candidate h3 {
+  color: $gray_3;
+  font-size: 1.4rem;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -33,7 +37,7 @@
   @include border-radius(4px);
   border: 1px solid $gray_2;
   padding: 10px;
-  width: 80%;
+  width: 100%;
 }
 
 .edit_candidate label.radio-label,
@@ -42,6 +46,7 @@
 }
 
 .edit_candidate label.radio-label {
+  font-weight: normal;
   width: 90%;
 }
 

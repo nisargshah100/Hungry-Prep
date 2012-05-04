@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  
+
   def edit
     @candidate = Candidate.find(params[:id])
   end
