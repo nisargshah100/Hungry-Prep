@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_filter :lookup_candidate, only: [:show, :update]
+  before_filter :lookup_candidate, only: [:edit, :show, :update]
 
   def edit
 
@@ -20,7 +20,7 @@ class CandidatesController < ApplicationController
   private
 
   def lookup_candidate
-    @candidate = Candidate.find(params[:id])
+    @candidate = current_user.candidate
   end
 
 end

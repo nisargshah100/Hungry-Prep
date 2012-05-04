@@ -4,10 +4,25 @@ class Candidate < ActiveRecord::Base
   belongs_to :user
   belongs_to :milestone
 
+  validates_presence_of :name, :city
+  validates_length_of :city, minimum: 12
+
   after_create :initialize_milestone
 
   def name
     user.name
+  end
+
+  def phone_number
+    phone
+  end
+
+  def phone_number=(num)
+    phone = num
+  end
+
+  def name=(new_name)
+    user.name = new_name
   end
 
   def email
