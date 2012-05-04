@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120504052941) do
 
-  create_table "candidate_questions", :force => true do |t|
-    t.integer  "candidate_id"
-    t.integer  "question_id"
-    t.text     "question_text"
-    t.text     "answer"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "candidate_reviewers", :force => true do |t|
     t.integer "candidate_id"
     t.integer "reviewer_id"
@@ -61,9 +52,8 @@ ActiveRecord::Schema.define(:version => 20120504052941) do
     t.string   "title"
     t.text     "text"
     t.integer  "last_editor_id", :default => 0
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.string   "answer_type",    :default => "text_field"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "reviewers", :force => true do |t|
