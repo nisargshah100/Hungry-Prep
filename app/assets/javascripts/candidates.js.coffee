@@ -20,4 +20,6 @@ $ ->
   form.children(":input").blur ->
     $.post form.attr("action"), $(form).serialize(), (res) ->
       console.log(res)
+      document.getElementById("flash-save").innerHTML = "Saved"
+      setTimeout("document.getElementById('flash-save').innerHTML = ''", 1000)
       false
