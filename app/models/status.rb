@@ -10,6 +10,7 @@ end
 
 class Status < ActiveRecord::Base
   belongs_to :user
+  attr_accessible :status_id
 
   STATUSES = [ "Application unfinished", "Application submitted",
     "Review started", "Review finished", "Phone interview",

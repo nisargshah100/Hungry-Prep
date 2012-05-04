@@ -3,7 +3,7 @@
       <li <% if idx == params[:status].to_i %> class="current" <% end %> ><%= link_to status, admin_candidates_path(status: idx), :class => "btn" %></li>
     <% end %>
   </ul>
-  
+
   <table class="table table-bordered table-striped table-wide admin-table">
     <thead>
       <th>Name</th>
@@ -17,7 +17,7 @@
         <td><%= candidate.email %></td>
         <td>
           <%= simple_form_for :status, :url => admin_status_path(candidate.id), :method => :put do |f| %>
-            <%= select_tag :status, options_for_select(Status::STATUSES) %>
+            <%= select_tag :status, options_for_select(Status::STATUSES, candidate.status) %>
             <%= f.submit :class => "button secondary small" %>
           <% end %>
         </td>

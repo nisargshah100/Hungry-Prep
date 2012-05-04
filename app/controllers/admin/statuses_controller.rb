@@ -3,7 +3,8 @@ class Admin::StatusesController < Admin::AdminController
 
   def update
     @candidate = Candidate.find(params[:id])
-    render :json => params
+    @candidate.statuses.create(status_id: Status::STATUSES.index(params[:status]))
+    redirect_to admin_candidate_reviewers_path
   end
 
 end
