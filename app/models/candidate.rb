@@ -12,7 +12,7 @@ class Candidate < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :milestone
-  validates_numericality_of :phone
+  validates_numericality_of :phone, allow_blank: true
 
   before_save :fetch_youtube_thumbnail
   after_create :initialize_milestone, :add_status
