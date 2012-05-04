@@ -12,7 +12,7 @@ class Admin::ReviewsController < Admin::AdminController
   def create
     @candidate = Candidate.find(params[:candidate_id])
     if review = @candidate.reviews.create(params[:review])
-      redirect_to admin_review_path(@candidate.id, review), notice: "Successfully Submitted"
+      redirect_to admin_candidate_review_path(@candidate.id, review), notice: "Successfully Submitted"
     else
       render 'new', notice: "Please try again"
     end

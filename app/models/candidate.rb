@@ -35,6 +35,15 @@ class Candidate < ActiveRecord::Base
     statuses.last
   end
 
+  def total_score
+    total = reviews.inject(0) do |total, review|
+      total += review.total_score
+    end
+    
+    reviews.count == 0 ? average = 0 : average = total / reviews.count
+    (average * 10).round
+  end
+
   def fetch_youtube_thumbnail
     t = ""
     unless self.youtube_link.blank?

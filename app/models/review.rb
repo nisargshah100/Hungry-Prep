@@ -5,12 +5,22 @@ class Review < ActiveRecord::Base
   belongs_to :reviewer
   belongs_to :milestone
 
+  RATINGS = %w( communication reasoning )
+
   validates :communication, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
   validates :reasoning, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
 
   def completed?
     not self.body.blank?
   end
+
+  def total_score
+    total = RATINGS.inject(0) do |total, rating|
+      total += self.send(rating.to_sym)
+    end
+    total.to_f / RATINGS.count
+  end
+
 end
 # == Schema Information
 #

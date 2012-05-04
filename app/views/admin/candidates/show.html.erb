@@ -8,9 +8,19 @@
     <li>Status: <%= @candidate.status.status %></li>
     <li>Rating: <%= @candidate.total_score %></li>
   </ul>
+  <br />
+  Responses
+  <br />
+  <br />
+  
+  <% @candidate.responses.each do |response| %>
+    <b><%= response.question.text %></b>
+    <br /><br />
+    <p><%= response.body %></p>
+    <br />
+  <% end %>
 
   Reviewers
-  <br />
   <table>
     <% if @candidate.reviewers.empty? %>
       <tr>There are no reviewers</tr>
