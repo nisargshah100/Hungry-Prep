@@ -1,9 +1,6 @@
 class Admin::CandidatesController < Admin::AdminController
   load_and_authorize_resource
 
-  # before_filter :validate_admin
-  before_filter :lookup_candidate, only: [:show, :update, :edit]
-
   def index
     @candidates = current_user.reviewer.candidates
   end
@@ -24,10 +21,5 @@ class Admin::CandidatesController < Admin::AdminController
     end
   end
 
-  private
-
-  def lookup_candidate
-    @candidate = Candidate.find(params[:id])
-  end
 
 end

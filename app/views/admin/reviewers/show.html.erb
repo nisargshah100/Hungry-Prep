@@ -1,0 +1,20 @@
+Reviewer Info
+<br />
+<ul>
+  <li><%= @reviewer.name %></li>
+  <li><%= @reviewer.email %></li>
+</ul>
+
+Candidates
+<br />
+<table>
+  <% if @reviewer.candidates.empty? %>
+    <tr>There are no candidates</tr>
+  <% end %>
+  <% @reviewer.candidates.each do |candidate| %>
+    <tr>
+      <td><%= candidate.name %></td>
+      <td><%= candidate.email %></td>
+    </tr>
+  <% end %>
+</table>

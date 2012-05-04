@@ -29,10 +29,4 @@ class Admin::ReviewsController < Admin::AdminController
 
   end
 
-  private
-
-  def lookup_review
-    @review = Review.where(params[:id])
-  end
-
 end

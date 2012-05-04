@@ -9,6 +9,7 @@ HungryPrep::Application.routes.draw do
     resources :candidates
     resources :reviewers
     resources :reviews
+    resources :candidate_reviewers
   end
 
 end
