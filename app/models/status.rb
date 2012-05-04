@@ -1,3 +1,13 @@
+class String
+  def sploin(string)
+    self.split.join(string)
+  end
+
+  def to_method_name
+    self.downcase.sploin("_")
+  end
+end
+
 class Status < ActiveRecord::Base
   belongs_to :user
 
@@ -19,17 +29,7 @@ class Status < ActiveRecord::Base
     end
   end
 
-  def self.get_status(index)
+  def to_s
     STATUSES[status]
-  end
-end
-
-class String
-  def sploin(string)
-    self.split.join(string)
-  end
-
-  def to_method_name
-    self.downcase.sploin("_")
   end
 end
