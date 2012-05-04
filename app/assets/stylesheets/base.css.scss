@@ -1,0 +1,33 @@
+body {
+  background: $gray_3;
+}
+
+.logo {
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+.cobrand {
+  color: $gray_2;
+  margin-bottom: 20px;
+  padding-top: 50px;
+}
+
+.cobrand .logo {
+  margin: 0 5px;
+}
+
+.logo-ls {
+  background: url("/assets/ls_logo.png") 0 0 no-repeat;
+  padding-top: 5px;
+  width: 110px;
+  height: 25px;
+
+}
+
+.logo-jumpstart {
+  background: url("/assets/jumpstart_logo.png") 0 0 no-repeat;
+  padding-top: 10px;
+  width: 119px;
+  height: 25px;
+}
