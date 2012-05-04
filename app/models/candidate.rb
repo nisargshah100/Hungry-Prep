@@ -10,6 +10,7 @@ class Candidate < ActiveRecord::Base
   belongs_to :user
   belongs_to :milestone
 
+  before_save :fetch_youtube_thumbnail
   after_create :initialize_milestone, :add_status
   def_delegators :user, :name, :email
 
@@ -31,7 +32,7 @@ class Candidate < ActiveRecord::Base
 
   def fetch_youtube_thumbnail
     begin
-      t = youtube_client.video_by().thumbnails.first.url
+      t = youtube_client.video_by(self.youtube_link).thumbnails.first.url
     rescue OpenURI::HTTPError
       t = ""
     end
