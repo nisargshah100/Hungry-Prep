@@ -1,14 +1,16 @@
 class Question < ActiveRecord::Base
-  attr_accessible :title, :text, :last_editor_id
+  attr_accessible :text, :last_editor_id
 
-  def get_user_name(id)
+  has_many :responses
+
+  def response_for_candidate_id(candidate_id)
+    responses.where(candidate_id: candidate_id).first
   end
+
 
   def update_question(user, attrs)
     last_editor_id = user.id
-    write_attribute(:title, attrs[:title])
     write_attribute(:text, attrs[:text])
-
     save
   end
 

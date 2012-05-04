@@ -3,6 +3,7 @@ class CandidatesController < ApplicationController
   def edit
     @candidate = Candidate.find(params[:id])
     @questions = Question.all
+    @responses = @candidate.responses
   end
 
   def show
@@ -10,10 +11,13 @@ class CandidatesController < ApplicationController
   end
 
   def update
-    if current_user.candidate.update_attributes(params[:candidate])
-      redirect_to candidate_path(current_user.candidate), notice: "Successfully Saved"
+    @candidate = Candidate.find(params[:id])
+    @candidate.update_responses(params[:questions])
+
+    if @candidate.update_attributes(params[:candidate])
+      redirect_to candidate_path(@candidate), notice: "Successfully Saved"
     else
-     redirect_to edit_candidate_path(current_user.candidate)), notice: "Please try again"
+     redirect_to edit_candidate_path(@candidate), notice: "Please try again"
     end
   end
 

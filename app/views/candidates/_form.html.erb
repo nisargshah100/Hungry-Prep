@@ -18,8 +18,8 @@
         <%= f.select :state, options_for_select(STATES) %>
       </li>
       <li>
-        <%= f.label :phone_number %>
-        <%= f.text_field :phone_number %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
       </li>
     </ul>
   </fieldset>
@@ -27,10 +27,11 @@
   <fieldset class="user-box">
     <h2>Questionnaire</h2>
     <p>Answer each question as succintly as you deem fit.</p>
+    <br />
     <ul>
       <% @questions.each do |question| %>
-        <li><%= question.title %>
-        <%= text_field_tag "questions[#{question.id}]" %></li>
+        <li><%= question.text %>
+        <%= text_field_tag "questions[#{question.id}]", question.response_for_candidate_id(@candidate.id) %></li>
         <% end %>
     </ul>
   </fieldset>

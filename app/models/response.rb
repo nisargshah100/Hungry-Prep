@@ -4,4 +4,8 @@ class Response < ActiveRecord::Base
   belongs_to :candidate
   belongs_to :question
 
+  def to_s
+    body
+  end
+
 end

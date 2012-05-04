@@ -12,14 +12,14 @@
       <% end %>
       <div class="user-details">
         <span class="email"><%= @candidate.email %></span>
-        <span class="email"><%= @candidate.phone_number %></span>
+        <span class="email"><%= @candidate.phone %></span>
 
       </div>
 
     </div>
 
     <div class="actions">
-      <%= link_to "Edit Profile", "#", :class => "button primary" %>
+      <%= link_to "Edit Profile", edit_candidate_path(@candidate.id), :class => "button primary" %>
     </div>
   </div>
 </div>
