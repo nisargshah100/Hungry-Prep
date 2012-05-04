@@ -171,22 +171,27 @@ b {font-weight: bold;}
     }
   }
   .material {
-    position: absolute; opacity: 0; padding: 15px;
-    -webkit-transform: rotateX(90deg); -webkit-transform-origin: top; -webkit-transition: .5s all ease-in-out; 
-    &.visible {-webkit-transform: rotateX(0deg); position: relative; opacity: 1; -webkit-transform-origin: bottom;}
+    padding: 15px;
+    width: 100%;
+    position: relative;
   }
   .materials {
+    position: relative;
     -webkit-perspective: 400px; margin-bottom: 2em;
     h2 {
       padding: 15px 15px 10px 15px;
       background: url(/assets/disclosure.png) no-repeat 98% 10px;
     }
-    > div {background: #dadada; border-top: 1px solid #ccc;}
+    > div {position: relative; background: #dadada; border-top: 1px solid #ccc;}
   }
 }
 
 .reviewer {
   h2 {margin-bottom: 1em;}
+}
+
+.admin-candidates {
+  .user-snapshot {float: left; @include clearfix;}
 }
 
 

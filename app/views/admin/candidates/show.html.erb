@@ -2,6 +2,15 @@
 
   <header>
 
+    <div class="user-snapshot">
+    <% if @candidate.profile_img? %>
+      <%= image_tag @candidate.profile_img %>
+    <% else %>
+      <%= image_tag "/assets/blank_user.gif" %>
+    <% end %>
+    </div>
+      
+      
     <h1><%= @candidate.name %></h1>
 
     <section class="meta">
