@@ -25,6 +25,24 @@
   </fieldset>
 
   <fieldset class="user-box">
+    <h2>Questionnaire</h2>
+    <p>Answer each question as succintly as you deem fit.</p>
+    <ul>
+      <li>
+        <%= f.label :long_answer_1,"#{Question.find_by_id(1).text}" %>
+        <%= f.text_field :long_answer_1 %>
+      </li>
+      <li>
+        <%= f.label :long_answer_2, "#{Question.find_by_id(2).text}" %>
+        <%= f.text_field :long_answer_2 %>
+      </li>
+        <%= f.label :long_answer_3, "#{Question.find_by_id(3).text}" %>
+        <%= f.text_field :long_answer_3 %>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="user-box">
     <h2>Moving Parts</h2>
     <ul>
       <li>
