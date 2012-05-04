@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     token = data['credentials']['token']
     email = JSON.parse(open("https://api.github.com/user/emails?access_token=#{token}").read()).first
     
-    @user = User.find_for_github_oauth(email, data, current_user)
+    @user = User.find_for_github_oauth(email, data)
 
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "GitHub"

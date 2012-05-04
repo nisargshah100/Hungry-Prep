@@ -1,5 +1,6 @@
 class Reviewer < ActiveRecord::Base
   # attr_accessible :title, :body
+  has_many :reviews
   has_many :candidates, through: [ :reviews, :user ]
   belongs_to :user
 end
