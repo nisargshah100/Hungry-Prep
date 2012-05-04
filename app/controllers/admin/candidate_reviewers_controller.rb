@@ -1,5 +1,5 @@
 class Admin::CandidateReviewersController < Admin::AdminController
-  load_and_authorize_resource
+  authorize_resource
 
   def index
     @candidates = Candidate.all
@@ -16,8 +16,8 @@ class Admin::CandidateReviewersController < Admin::AdminController
 
   def update
     candidate = Candidate.find(params[:id])
-    candidate.update_attributes
-    render :json => params
+    candidate.update_attributes(reviewer_ids: params[:candidate][:reviewer_ids])
+    redirect_to admin_candidate_reviewers_path
   end
 
 end
