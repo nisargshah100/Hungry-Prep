@@ -11,6 +11,7 @@ Ratings
 <h3>General Comments</h3>
 <br />
 <%= simple_form_for @review, url: admin_candidate_reviews_path(@candidate) do |f| %>
+<%= f.hidden_field :reviewer_id, value: @reviewer.id %>
 <%= f.input :communication, :collection => 1..10, :as => :select, :default => 1 %>
 <%= f.input :reasoning, :collection => 1..10, :as => :select, :default => 1 %>
 <%= f.input :body %>
