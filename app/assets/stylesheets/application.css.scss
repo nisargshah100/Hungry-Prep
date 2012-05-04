@@ -5,26 +5,4 @@
 @import "base";
 @import "user";
 
-* {
-  @include box-sizing(border-box);
-}
 
-
-.global-header {
-  background: $black url("/assets/header.png") left bottom repeat-x;
-  min-height: 65px;
-}
-
-.header-inner {
-  position: relative;
-}
-
-.global-header .logo {
-  background: url("/assets/logo.png") 0 0 no-repeat;
-  position: absolute;
-  left: 0;
-  text-indent: -999px;
-  width: 380px;
-  height: 131px;
-  display: block;
-}

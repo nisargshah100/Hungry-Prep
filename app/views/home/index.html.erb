@@ -1,9 +1,9 @@
-<h1>Hello</h1>
-<% if current_user %>
-  You are logged in as <%= current_user.name %>
-  <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to 'Sign In With GitHub', user_omniauth_authorize_path(:github) %>
+<div class="login rounded-box">
+  <p class="welcome">Welcome! Please sign in to begin the Hungry Academy application process.</p>
+  
+  <div class="login-actions">
+    <%= link_to 'Sign In With GitHub', user_omniauth_authorize_path(:github), :class => "login-github" %>
 
-  <%= link_to 'Sign In With Google', user_omniauth_authorize_path(:google) %>
-<% end %>
+    <%= link_to 'Sign In With Google', user_omniauth_authorize_path(:google), :class => "login-google" %>
+  </div>
+</div>
