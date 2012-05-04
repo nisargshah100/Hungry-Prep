@@ -1,4 +1,4 @@
 <% @candidates.each do |candidate| %>
   <%= image_tag candidate.profile_img %>
-  <%= candidate.name %>
+  <%= link_to candidate.name, admin_candidate_path(candidate)%>
 <% end %>
